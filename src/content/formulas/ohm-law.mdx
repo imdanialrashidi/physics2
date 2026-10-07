@@ -1,0 +1,58 @@
+---
+type: formula
+title: قانون اهم و مقاومت سیم
+name: "قانون اهم و مقاومت ویژه"
+description: "قانون اهم، مقاومت سیم از جنس و ابعاد، و تغییر مقاومت با دما؛ پایهٔ تحلیل همهٔ مدارهای الکتریکی."
+section: circuits
+difficulty: beginner
+order: 1
+estimatedMinutes: 7
+prerequisites: [electric-current]
+tags: [اهم, مقاومت, مدار]
+latex: "V = IR"
+units: "ولت، آمپر و اهم"
+conditions:
+  - برای رساناهای اهمی با مقاومت ثابت درست است.
+  - دما ثابت فرض می‌شود مگر خلافش گفته شود.
+---
+
+import Formula from '../../components/educational/Formula.astro';
+import FormulaBreakdown from '../../components/educational/FormulaBreakdown.astro';
+import Callout from '../../components/educational/Callout.astro';
+
+## سه‌تاییِ جدانشدنیِ مدار
+
+<Formula
+  id="ohm-law"
+  latex={"V = IR"}
+  caption="قانون اهم"
+/>
+
+<FormulaBreakdown
+  title="اجزای فرمول"
+  terms={[
+    { term: "V", label: 'ولتاژ دو سر قطعه', detail: 'اختلاف پتانسیلی که جریان را هل می‌دهد' },
+    { term: "I", label: 'جریان عبوری', detail: 'بارِ عبوری در هر ثانیه، بر حسب آمپر' },
+    { term: "R", label: 'مقاومت', detail: 'میزان مخالفت با جریان، بر حسب اهم' },
+  ]}
+/>
+
+مقاومتِ یک سیم از جنس و شکلش می‌آید:
+
+<Formula
+  id="wire-resistance"
+  latex={"R = \\rho\\frac{L}{A}"}
+  caption="مقاومت سیم: بلند و باریک یعنی مقاومت بیشتر"
+/>
+
+و با دما عوض می‌شود (برای فلزها معمولاً زیاد می‌شود):
+
+<Formula
+  id="temperature-resistance"
+  latex={"R = R_0[1 + \\alpha(T - T_0)]"}
+  caption="تغییر مقاومت با دما"
+/>
+
+<Callout type="note" title="شبیه لولهٔ آب">
+  ولتاژ مثل فشار آب است، جریان مثل دبی و مقاومت مثل گرفتگی لوله. لولهٔ بلند و باریک (L بزرگ، A کوچک) آب را سخت‌تر رد می‌کند — دقیقاً مثل فرمول بالا.
+</Callout>

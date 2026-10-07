@@ -13,46 +13,62 @@ import type { CourseConfig } from '../lib/types';
 
 export const courseConfig: CourseConfig = {
   // --- Identity (course-specific) ---
-  title: 'حساب دیفرانسیل، قدم‌به‌قدم',
-  tagline: 'از حد تا قاعدهٔ زنجیره‌ای — با مثال حل‌شده، فرمول دقیق و تمرین',
+  title: 'فیزیک ۲، قدم‌به‌قدم',
+  // Header lockup shows the short wordmark only (owner direction 2026-10-07).
+  headerTitle: 'فیزیک ۲',
+  headerMark: 'atom',
+  tagline: 'از بار الکتریکی تا قانون آمپر — با مثال حل‌شده، فرمول دقیق و آزمایشگاه تعاملی',
   description:
-    'درس‌نامهٔ آزاد و قدم‌به‌قدم حساب دیفرانسیل: هر مفهوم با مثال حل‌شده، هر فرمول با توضیح دقیق. از حد شروع کنید و تا قاعدهٔ زنجیره‌ای پیش بروید.',
-  shortDescription: 'درس‌نامهٔ قدم‌به‌قدم حساب دیفرانسیل',
+    'درس‌نامهٔ آزاد و قدم‌به‌قدم فیزیک ۲: الکتریسیته و مغناطیس از پایه. هر مفهوم با شهود ساده، هر فرمول با توضیح دقیق و هر بخش با تمرین و آزمایشگاه تعاملی.',
+  shortDescription: 'درس‌نامهٔ قدم‌به‌قدم فیزیک ۲: الکتریسیته و مغناطیس',
   locale: 'fa',
   direction: 'rtl',
 
   // --- Course metadata ---
   difficulty: 'beginner',
   estimatedDuration: 'خودآموز',
-  difficultyLevel: 3, // 1–5 scale
-  tags: ['ریاضی', 'حساب دیفرانسیل', 'حد و مشتق'],
+  difficultyLevel: 2, // 1–5 scale
+  tags: ['فیزیک', 'الکتریسیته', 'مغناطیس', 'فیزیک ۲'],
   category: 'آموزشی',
 
   // --- Sections (navigation groups) ---
+  // One section per lecture-note part, plus a lab collecting the interactives.
   sections: [
     {
-      id: 'foundations',
-      title: 'مبانی',
-      description: 'مفاهیم اولیه و پیش‌نیازها',
+      id: 'charge-field',
+      title: 'بار الکتریکی و میدان',
+      description: 'بار، قانون کولن، میدان بار نقطه‌ای و دوقطبی',
       order: 1,
     },
     {
-      id: 'calculus',
-      title: 'حساب دیفرانسیل و انتگرال',
-      description: 'مشتق، انتگرال و کاربردهایشان',
+      id: 'gauss',
+      title: 'توزیع پیوستهٔ بار و قانون گاوس',
+      description: 'چگالی بار، شار و کاربرد گاوس در تقارن‌ها',
       order: 2,
     },
     {
-      id: 'physics',
-      title: 'فیزیک',
-      description: 'مکانیک، الکتریسیته و مغناطیس‌گری',
+      id: 'potential',
+      title: 'پتانسیل الکتریکی و خازن',
+      description: 'اختلاف پتانسیل، انرژی و خازن‌های سری و موازی',
       order: 3,
     },
     {
-      id: 'practice',
-      title: 'تمرین',
-      description: 'سوالات و مسائل تمرینی',
+      id: 'circuits',
+      title: 'جریان، مدار و RC',
+      description: 'قانون اهم، توان، کیرشهف و شارژ و تخلیهٔ خازن',
       order: 4,
+    },
+    {
+      id: 'magnetism',
+      title: 'مغناطیس و قانون آمپر',
+      description: 'نیروی مغناطیسی، حرکت دایره‌ای و میدان جریان‌ها',
+      order: 5,
+    },
+    {
+      id: 'lab',
+      title: 'آزمایشگاه',
+      description: 'همهٔ شبیه‌سازی‌های تعاملی دوره در یک‌جا',
+      order: 6,
     },
   ],
 
@@ -60,13 +76,18 @@ export const courseConfig: CourseConfig = {
   // `themePreset` selects a shared preset from `src/lib/themes.ts`; inline
   // `theme.colors` still wins when both are set, so a course can start from a
   // preset and adjust one role. Never fork `src/styles/theme.css` per course.
-  themePreset: 'calculus',
+  themePreset: 'physics',
   theme: {
-    name: 'calculus',
-    // Roles come from the `calculus` preset in src/lib/themes.ts (the
-    // documented paper/teal/ochre palette). Override a single role here only
-    // when the course genuinely needs it — never fork theme.css.
-    colors: {},
+    name: 'physics',
+    // Refined Physics II palette (owner-approved direction, 2026-10-07):
+    // vivid-laboratory indigo primary with the amber accent. Roles come
+    // from the `physics` preset; only primary/deep are overridden here —
+    // never fork theme.css. Measured (WCAG 2.2 relative luminance):
+    // white on #4F46E5 = 6.3:1, #4338CA on paper #FAF7F0 = 7.4:1,
+    // accent #B45309 on paper = 4.7:1 — all light-theme text pairs pass.
+    // Known limitation: the single-hex override also applies in dark mode,
+    // where filled-button text stays near-black (see docs/DESIGN.md).
+    colors: { primary: '#4F46E5', primaryHover: '#4338CA' },
     typography: 'traditional',
     motif: 'geometric',
   },

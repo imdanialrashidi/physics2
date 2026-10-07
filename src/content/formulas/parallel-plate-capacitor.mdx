@@ -1,0 +1,52 @@
+---
+type: formula
+title: ظرفیت خازن صفحات موازی
+name: "ظرفیت خازن تخت با دی‌الکتریک"
+description: "ظرفیت خازن صفحات موازی از مساحت و فاصله، و اثر دی‌الکتریک در چند برابر شدن ظرفیت."
+section: potential
+difficulty: beginner
+order: 2
+estimatedMinutes: 6
+prerequisites: [capacitor]
+tags: [خازن, دی‌الکتریک]
+latex: "C = \\frac{\\kappa\\epsilon_0 A}{d}"
+units: "فاراد (F)"
+conditions:
+  - ابعاد صفحات خیلی بزرگ‌تر از فاصلهٔ آن‌هاست.
+  - دی‌الکتریک کل فضای بین صفحات را پر کرده است.
+---
+
+import Formula from '../../components/educational/Formula.astro';
+import FormulaBreakdown from '../../components/educational/FormulaBreakdown.astro';
+import Callout from '../../components/educational/Callout.astro';
+
+## تعریف ظرفیت و خازن تخت
+
+ظرفیت یعنی «به‌ازای هر ولت، چقدر بار ذخیره می‌کنی»:
+
+<Formula
+  id="capacitance-definition"
+  latex={"C = \\frac{Q}{V}"}
+  caption="تعریف ظرفیت خازن"
+/>
+
+برای دو صفحهٔ موازی:
+
+<Formula
+  id="parallel-plate-capacitor"
+  latex={"C = \\frac{\\kappa\\epsilon_0 A}{d}"}
+  caption="ظرفیت خازن تخت؛ بدون دی‌الکتریک κ برابر ۱ است"
+/>
+
+<FormulaBreakdown
+  title="اجزای فرمول"
+  terms={[
+    { term: "A", label: 'مساحت صفحات', detail: 'صفحهٔ بزرگ‌تر، جای بیشتر برای بار' },
+    { term: "d", label: 'فاصلهٔ صفحات', detail: 'فاصلهٔ کمتر، جاذبهٔ بیشتر بین بارهای روبه‌رو' },
+    { term: "\\kappa", label: 'ثابت دی‌الکتریک', detail: 'عایق بین صفحات ظرفیت را κ برابر می‌کند' },
+  ]}
+/>
+
+<Callout type="tip" title="حفظ‌کردن بدون فرمول">
+  مساحت بزرگ‌تر و فاصلهٔ کمتر و عایق بهتر، هر سه ظرفیت را زیاد می‌کنند — هر سه یعنی «بارها راحت‌ترِ همدیگر را تحمل می‌کنند». اگر جهت اثر هر سه را بدانی، فرمول را هیچ‌وقت برعکس نمی‌نویسی.
+</Callout>

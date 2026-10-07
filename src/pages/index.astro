@@ -128,18 +128,21 @@ const courseJsonLd = {
         )}
       </div>
 
-      {/* Course visual: a thin-stroke derivative plate, not decoration.
-          Below `lg` it stacks under the text, capped and centered so it never
-          becomes a full-bleed giant on tablets. */}
+      {/* Course visual: a subject-neutral geometric plate in the course
+          palette, not decoration. It must never teach one discipline's
+          content: the same shell hosts every course, so the plate carries
+          only the shared illuminated-geometry motif. Below `lg` it stacks
+          under the text, capped and centered so it never becomes a
+          full-bleed giant on tablets. */}
       <figure class="mx-auto min-w-0 w-full max-w-2xl overflow-hidden rounded-lg border border-line bg-surface lg:col-span-5 lg:max-w-none lg:self-center">
         <svg
           viewBox="0 0 400 260"
           role="img"
-          aria-label="نمودار یک تابع صعودی با خط مماس در یک نقطه — شیب مماس همان مشتق است"
+          aria-label="موتیف هندسی دوره: دایره‌های هم‌مرکز و خط‌های راهنما با یک کمان برجسته"
           class="block h-auto w-full"
         >
           <rect x="0.5" y="0.5" width="399" height="259" fill="none" />
-          {/* grid */}
+          {/* faint construction grid */}
           <g stroke="currentColor" stroke-width="1" opacity="0.12" class="text-ink">
             {Array.from({ length: 7 }, (_, i) => (
               <line x1={40 + i * 50} y1="16" x2={40 + i * 50} y2="228" />
@@ -148,32 +151,34 @@ const courseJsonLd = {
               <line x1="24" y1={44 + i * 44} x2="384" y2={44 + i * 44} />
             ))}
           </g>
-          {/* axes */}
-          <g stroke="currentColor" stroke-width="1.5" opacity="0.55" class="text-ink">
-            <line x1="24" y1="228" x2="384" y2="228" />
-            <line x1="40" y1="16" x2="40" y2="244" />
+          {/* concentric construction circles */}
+          <g fill="none" stroke="currentColor" stroke-width="1" opacity="0.4" class="text-ink">
+            <circle cx="200" cy="130" r="34" />
+            <circle cx="200" cy="130" r="62" />
+            <circle cx="200" cy="130" r="90" />
           </g>
-          {/* curve f(x) */}
+          {/* radial guides */}
+          <g stroke="currentColor" stroke-width="1" opacity="0.35" class="text-ink">
+            <line x1="200" y1="22" x2="200" y2="238" />
+            <line x1="92" y1="130" x2="308" y2="130" />
+            <line x1="124" y1="54" x2="276" y2="206" />
+            <line x1="276" y1="54" x2="124" y2="206" />
+          </g>
+          {/* the one luminous arc: the idea at the centre */}
           <path
-            d="M40 208 C 110 200, 150 168, 195 138 S 300 76, 360 44"
+            d="M 200 68 A 62 62 0 0 1 253.7 161.5"
             fill="none"
             stroke="currentColor"
-            stroke-width="2"
+            stroke-width="2.5"
             stroke-linecap="round"
             class="text-primary"
           />
-          {/* tangent at the marked point */}
-          <line x1="130" y1="196" x2="270" y2="92" stroke="currentColor" stroke-width="1.5" stroke-dasharray="6 4" class="text-accent" />
-          <circle cx="200" cy="142" r="5" fill="currentColor" class="text-accent" />
-          <circle cx="200" cy="142" r="10" fill="none" stroke="currentColor" stroke-width="1" opacity="0.5" class="text-accent" />
-          {/* labels */}
-          <text x="352" y="240" font-size="13" fill="currentColor" opacity="0.6" class="text-ink" text-anchor="middle">x</text>
-          <text x="28" y="32" font-size="13" fill="currentColor" opacity="0.6" class="text-ink" text-anchor="middle">y</text>
-          <text x="282" y="86" font-size="12.5" fill="currentColor" class="text-accent">مماس = مشتق</text>
-          <text x="120" y="222" font-size="12.5" fill="currentColor" opacity="0.75" class="text-ink">تابع</text>
+          <circle cx="200" cy="130" r="5" fill="currentColor" class="text-accent" />
+          <circle cx="200" cy="130" r="10" fill="none" stroke="currentColor" stroke-width="1" opacity="0.5" class="text-accent" />
+          <circle cx="253.7" cy="161.5" r="4" fill="currentColor" class="text-primary" />
         </svg>
         <figcaption class="border-t border-line px-4 py-2.5 text-xs leading-relaxed text-ink-muted">
-          شیب خط مماس در هر نقطه، مشتق تابع در همان نقطه است — ایده‌ای که این دوره دور آن ساخته شده.
+          نشانهٔ تصویری دوره: یک ایدهٔ مرکزی و چند خطِ راهنما — همان نظمی که در همهٔ درس‌ها می‌بینی: تعریف، فرمول، مثال حل‌شده، تمرین.
         </figcaption>
       </figure>
     </div>

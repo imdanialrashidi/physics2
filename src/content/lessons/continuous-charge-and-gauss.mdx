@@ -1,0 +1,55 @@
+---
+type: lesson
+title: توزیع پیوستهٔ بار و قانون گاوس
+description: "از تکه‌بار تا انتگرال: چگالی‌های بار، میدان حلقه و صفحه، شار و قانون گاوس در سه تقارن کروی، استوانه‌ای و صفحه‌ای."
+section: gauss
+difficulty: intermediate
+order: 1
+estimatedMinutes: 30
+objective: بتوانید با انتخاب سطح گاوسی مناسب، میدان کره و سیم و صفحهٔ باردار را بدون انتگرال سخت به دست آورید.
+tags: [گاوس, شار, تقارن, چگالی]
+prerequisites: [electric-field]
+concepts: [charge-density, electric-flux]
+formulas: [gauss-law, charged-sphere-field, long-wire-field, plane-charge-field, ring-charge-field]
+---
+
+تک‌بارها تمام شدند. دنیای واقعی سیم و صفحه و کره است — بارِ پخش‌شده. خبر خوب: با تقارن، جواب‌ها از تک‌بار هم ساده‌تر می‌شوند.
+
+## تکه‌تکه کن و جمع بزن
+
+هر توزیع پیوسته را به ذره‌های خیلی کوچک <Formula inline latex={"dq"} /> می‌شکنیم؛ میدان هر ذره <Formula inline latex={"dE = k\\,dq/r^2"} /> است و جمعشان انتگرال می‌شود: <Formula inline latex={"\\vec{E} = \\int d\\vec{E}"} />.
+
+نوع پخش را با چگالی توصیف می‌کنیم: خطی <Formula inline latex={"\\lambda = Q/L"} />، سطحی <Formula inline latex={"\\sigma = Q/A"} /> و حجمی <Formula inline latex={"\\rho = Q/V"} />. هر مسئلهٔ پیوسته از همین‌جا شروع می‌شود: «بار چطور پخش شده؟ پس <Formula inline latex={"dq"} /> چیست؟»
+
+## دو توزیعِ آموزنده
+
+**حلقهٔ باردار** روی محورش میدانی می‌سازد که فقط مؤلفهٔ محوری‌اش زنده می‌ماند: <Formula inline latex={"E = kQx/(R^2+x^2)^{3/2}"} />. در مرکز صفر است (تقارن کامل) و از دور مثل تک‌بار می‌شود — هر دو حد را برای چک کردن جواب نگه دار.
+
+**صفحهٔ بزرگ** غافلگیرکننده است: میدانش <Formula inline latex={"E = \\sigma/2\\epsilon_0"} /> مستقل از فاصله است. هرچه دورتر می‌روی بارِ بیشتری می‌بینی و این دو اثر همدیگر را خنثی می‌کنند.
+
+## قانون گاوس: میان‌بُرِ تقارن‌ها
+
+<Formula
+  id="lesson-gauss"
+  latex={"\\Phi_E = \\frac{q_{net}}{\\epsilon_0}"}
+  caption="قانون گاوس — شارِ سطح بسته فقط به بارِ داخلش بستگی دارد"
+/>
+
+سه کاربردش را مثل جدول ضرب حفظ کن: کره (<Formula inline latex={"E = kQ/r^2"} /> بیرون، خطی داخل)، سیم بلند (<Formula inline latex={"E = \\lambda/2\\pi\\varepsilon_0r"} />) و صفحه (<Formula inline latex={"E = \\sigma/2\\epsilon_0"} />). به توان فاصله دقت کن: نقطه <Formula inline latex={"1/r^2"} />، سیم <Formula inline latex={"1/r"} />، صفحه ثابت. هرچه چشمه گسترده‌تر، افت کندتر.
+
+با مربی گاوس، هر سه حالت را با عدد ببین — مخصوصاً گذر از سطح کره که رفتار میدان عوض می‌شود:
+
+<PhysicsGaussTrainer />
+
+<Misconception
+  wrong="اگر شار یک سطح صفر باشد، پس میدان همه‌جای آن سطح صفر است."
+  correct="شارِ صفر یعنی ورودی و خروجی برابرند، نه اینکه میدانی نیست. دوقطبیِ داخلِ سطح گاوسی شار صفر می‌سازد ولی میدان اطرافش حسابی غیرصفر است."
+/>
+
+## از جزوه چه ماند؟
+
+این درس هر یازده مبحث فایل اول پارت دوم را پوشش می‌دهد: انتگرال توزیع پیوسته، هر سه چگالی، میدان سیم و حلقه و صفحه، تعریف شار، سطح گاوسی و سه تقارن، و میدان کره (داخل و خارج)، استوانه و صفحه — از جمله [مثال عددی کره](/examples/gauss-sphere).
+
+<Prerequisite ids={["electric-field", "charge-density"]} title="پیش‌نیازها" />
+
+قدم بعدی: [تمرین این بخش](/practice/practice-gauss) و بعد [پتانسیل و خازن](/lessons/potential-and-capacitors).

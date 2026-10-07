@@ -1,0 +1,70 @@
+---
+type: formula
+title: قانون کولن
+name: "قانون کولن (نیروی بین دو بار نقطه‌ای)"
+description: "اندازهٔ نیروی الکتریکی بین دو بار نقطه‌ای: تناسب با حاصل‌ضرب بارها و نسبت وارون با مربع فاصله، به‌همراه ثابت کولن."
+section: charge-field
+difficulty: beginner
+order: 2
+estimatedMinutes: 8
+prerequisites: [electric-charge]
+tags: [نیرو, کولن]
+latex: "F = k \\frac{|q_1 q_2|}{r^2}"
+units: "نیوتن (N)"
+conditions:
+  - برای بارهای نقطه‌ای یا کروی متقارن به کار می‌رود.
+  - جهت نیرو در راستای خط واصل دو بار است.
+---
+
+import Formula from '../../components/educational/Formula.astro';
+import FormulaBreakdown from '../../components/educational/FormulaBreakdown.astro';
+import Callout from '../../components/educational/Callout.astro';
+import Misconception from '../../components/educational/Misconception.astro';
+
+## قلب الکتریسیتهٔ ساکن
+
+دو بار، همدیگر را هل می‌دهند یا می‌کشند. قانون کولن می‌گوید این کشمکش چقدر قوی است:
+
+<Formula
+  id="coulomb-law"
+  latex={"F = k \\frac{|q_1 q_2|}{r^2}"}
+  caption="قانون کولن"
+/>
+
+<FormulaBreakdown
+  title="اجزای فرمول"
+  terms={[
+    { term: "F", label: 'اندازهٔ نیرو', detail: 'بر حسب نیوتن؛ جهت آن در راستای خط واصل دو بار است' },
+    { term: "q_1, q_2", label: 'دو بار', detail: 'قدرمطلق می‌گیریم چون فرمول فقط اندازه می‌دهد' },
+    { term: "r", label: 'فاصلهٔ مرکز تا مرکز', detail: 'بر حسب متر؛ دو بار در مخرج مربع می‌شود' },
+    { term: "k", label: 'ثابت کولن', detail: 'عددی که واحدها را جور می‌کند' },
+  ]}
+/>
+
+ثابت کولن و گذردهی خلأ:
+
+<Formula
+  id="coulomb-constant"
+  latex={"k = \\frac{1}{4\\pi\\varepsilon_0} = 8.99 \\times 10^9 \\; \\frac{\\text{N} \\cdot \\text{m}^2}{\\text{C}^2}"}
+  caption="ثابت کولن"
+/>
+
+<Formula
+  id="vacuum-permittivity"
+  latex={"\\varepsilon_0 = 8.85 \\times 10^{-12} \\; \\frac{\\text{C}^2}{\\text{N} \\cdot \\text{m}^2}"}
+  caption="گذردهی الکتریکی خلأ"
+/>
+
+دو نکته که باید با گوشت و پوست حس کنی:
+
+- **فاصله دو برابر → نیرو یک‌چهارم.** چون فاصله مربع می‌شود، کوچک‌ترین جابه‌جایی اثر بزرگی دارد.
+- **طبق قانون سوم نیوتن**، نیرویی که بار اول به دوم وارد می‌کند با نیروی دوم به اول برابر و در خلاف جهت است: <Formula inline latex={"|\\vec{F}_{12}| = |\\vec{F}_{21}|"} />.
+
+<Misconception
+  wrong="چون فرمول قدرمطلق دارد، پس علامت بارها هیچ اثری در مسئله ندارد."
+  correct="قدرمطلق فقط اندازه می‌دهد. علامت بارها جهت نیرو را تعیین می‌کند: هم‌علامت‌ها دفع و غیرهم‌علامت‌ها جذب می‌شوند. در جمع برداری نیروها، جهت همه‌چیز است."
+/>
+
+<Callout type="warning" title="دام واحدها">
+  فاصله را همیشه به متر و بار را به کولن تبدیل کن (هر میکروکولن یعنی <Formula inline latex={"10^{-6}"} /> کولن). رایج‌ترین غلط در مسئله‌های کولن، جا انداختن همین تبدیل است.
+</Callout>

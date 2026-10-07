@@ -1,0 +1,44 @@
+---
+type: formula
+title: میدان حلقهٔ باردار روی محور
+name: "میدان حلقهٔ باردار یکنواخت روی محور"
+description: "میدان حلقهٔ باردار یکنواخت روی محور آن: فقط مؤلفهٔ محوری می‌ماند و بقیه با تقارن حذف می‌شوند."
+section: gauss
+difficulty: intermediate
+order: 1
+estimatedMinutes: 7
+prerequisites: [charge-density]
+tags: [حلقه, تقارن]
+latex: "E = \\frac{kQx}{(R^2+x^2)^{3/2}}"
+units: "نیوتن بر کولن (N/C)"
+conditions:
+  - بار حلقه یکنواخت پخش شده است.
+  - نقطه روی محور عمود بر مرکز حلقه قرار دارد.
+---
+
+import Formula from '../../components/educational/Formula.astro';
+import FormulaBreakdown from '../../components/educational/FormulaBreakdown.astro';
+import Callout from '../../components/educational/Callout.astro';
+
+## تقارن، نصف مسئله را حل می‌کند
+
+هر تکهٔ کوچک حلقه میدانی می‌سازد، ولی مؤلفه‌های کناریِ تکه‌های روبه‌رو همدیگر را خنثی می‌کنند. فقط مؤلفهٔ محوری زنده می‌ماند:
+
+<Formula
+  id="ring-charge-field"
+  latex={"E = \\frac{kQx}{(R^2+x^2)^{3/2}}"}
+  caption="میدان حلقهٔ باردار روی محور"
+/>
+
+<FormulaBreakdown
+  title="اجزای فرمول"
+  terms={[
+    { term: "Q", label: 'بار کل حلقه', detail: 'جمع همهٔ تکه‌های کوچک بار' },
+    { term: "R", label: 'شعاع حلقه', detail: 'فاصلهٔ هر تکه بار تا مرکز' },
+    { term: "x", label: 'فاصله روی محور', detail: 'از مرکز حلقه تا نقطهٔ موردنظر' },
+  ]}
+/>
+
+<Callout type="tip" title="دو حدِ آموزنده">
+  در مرکز حلقه (<Formula inline latex={"x=0"} />) میدان صفر است: تقارن کامل. خیلی دور از حلقه (<Formula inline latex={"x \\gg R"} />) فرمول به میدان تک‌بار <Formula inline latex={"kQ/x^2"} /> برمی‌گردد، چون از دور کل حلقه مثل یک نقطه به نظر می‌رسد.
+</Callout>

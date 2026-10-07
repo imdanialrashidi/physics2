@@ -1,0 +1,75 @@
+---
+type: question
+title: تمرین جریان و مدار RC
+description: "تمرین بخش مدارها: قانون اهم، ترکیب مقاومت‌ها، ثابت زمانی و توان با پاسخ تشریحی."
+section: circuits
+difficulty: beginner
+order: 1
+estimatedMinutes: 10
+points: 5
+instructions: پرسش عددی را با تبدیل کیلو (۱۰ به توان ۳) و میکرو (۱۰ به توان ۶-) حل کنید؛ عجله نکنید.
+tags: [تمرین, اهم, مدار RC]
+---
+
+<Quiz
+  id="quiz-circuits-1"
+  title="سنجش فهم — جریان و مدار"
+  description="پنج پرسش کوتاه از اهم، توان و مدار RC."
+  questions={[
+    {
+      id: 'q1',
+      type: 'multiple-choice',
+      text: 'قانون اهم چه رابطه‌ای بیان می‌کند؟',
+      options: [
+        { id: 'a', text: 'ولتاژ برابر جریان ضربدر مقاومت (V = IR)' },
+        { id: 'b', text: 'توان برابر ولتاژ به‌علاوهٔ جریان' },
+        { id: 'c', text: 'بار برابر ظرفیت ضربدر زمان' },
+      ],
+      correctAnswer: 'a',
+      explanation: 'قانون اهم: اختلاف پتانسیل دو سر رسانا با جریان عبوری از آن متناسب است.'
+    },
+    {
+      id: 'q2',
+      type: 'multiple-choice',
+      text: 'مقاومت معادل دو مقاومت سری چطور حساب می‌شود؟',
+      options: [
+        { id: 'a', text: 'با جمع معکوس‌ها' },
+        { id: 'b', text: 'با جمع مستقیم (R₁ + R₂)' },
+        { id: 'c', text: 'با ضرب آن‌ها' },
+      ],
+      correctAnswer: 'b',
+      explanation: 'در مسیر سری، جریان از هر دو می‌گذرد و افت‌ولتاژها جمع می‌شوند.'
+    },
+    {
+      id: 'q3',
+      type: 'true-false',
+      text: 'بعد از حدود پنج ثابت زمانی، خازن عملاً کامل شارژ شده است.',
+      options: [
+        { id: 'true', text: 'درست' },
+        { id: 'false', text: 'نادرست' },
+      ],
+      correctAnswer: 'true',
+      explanation: 'بعد از ۵τ بیش از ۹۹٪ شارژ کامل شده؛ این قاعدهٔ مهندسیِ «تمام‌شده» است.'
+    },
+    {
+      id: 'q4',
+      type: 'numeric',
+      text: 'مدار RC با مقاومت ۱۰ کیلواهم و خازن ۱۰۰ میکروفاراد چه ثابت زمانی (بر حسب ثانیه) دارد؟ (فقط عدد)',
+      numericAnswer: 1,
+      tolerance: 0,
+      explanation: 'با τ = RC: مقدار ۱۰⁴ × ۱۰⁻⁴ = ۱ ثانیه.'
+    },
+    {
+      id: 'q5',
+      type: 'multiple-choice',
+      text: 'توان تلف‌شده در مقاومت ۱۰ اهم با جریان ۲ آمپر چقدر است؟',
+      options: [
+        { id: 'a', text: '۲۰ وات' },
+        { id: 'b', text: '۴۰ وات' },
+        { id: 'c', text: '۵ وات' },
+      ],
+      correctAnswer: 'b',
+      explanation: 'با P = I²R: مقدار ۴ × ۱۰ = ۴۰ وات.'
+    },
+  ]}
+/>

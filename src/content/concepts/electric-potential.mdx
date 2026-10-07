@@ -1,0 +1,40 @@
+---
+type: concept
+title: پتانسیل الکتریکی و انرژی پتانسیل
+short: پتانسیل، انرژیِ هر کولن بار در یک نقطه است؛ نرده‌ای و بسیار ساده‌تر از میدان.
+description: "پتانسیل و اختلاف پتانسیل: تعریف با کار میدان، واحد ولت، انرژی پتانسیل بار و رابطهٔ جهت میدان با کاهش پتانسیل."
+section: potential
+difficulty: beginner
+order: 1
+estimatedMinutes: 7
+prerequisites: [electric-field]
+tags: [پتانسیل, انرژی, ولت]
+formulas: [point-charge-potential]
+---
+
+import Formula from '../../components/educational/Formula.astro';
+import Definition from '../../components/educational/Definition.astro';
+import Misconception from '../../components/educational/Misconception.astro';
+
+## ارتفاعِ دنیای الکتریکی
+
+<Definition term="پتانسیل الکتریکی" id="potential-def" alt="Electric potential">
+  انرژی پتانسیلِ هر واحد بار در یک نقطه از فضا؛ بر حسب ولت (ژول بر کولن).
+</Definition>
+
+مثل نقشهٔ ارتفاع است: همان‌طور که توپ به سمت ارتفاع کمتر می‌غلتد، بار مثبت هم به سمت پتانسیل کمتر رانده می‌شود. اختلاف پتانسیلِ دو نقطه، کاری است که میدان به‌ازای هر کولن بارِ جابه‌جاشده انجام می‌دهد.
+
+انرژی پتانسیلِ یک بار در پتانسیل <Formula inline latex={"V"} />:
+
+<Formula
+  id="potential-energy-charge"
+  latex={"U = qV \\qquad U = \\frac{kq_1q_2}{r}"}
+  caption="انرژی پتانسیل بار و انرژی دو بار نقطه‌ای"
+/>
+
+اگر دو بار هم‌علامت باشند انرژی مثبت است (دوست دارند از هم دور شوند) و اگر غیرهم‌علامت باشند انرژی منفی است (دوست دارند کنار هم بمانند).
+
+<Misconception
+  wrong="پتانسیل و میدان یک چیزند و هرجا میدان صفر باشد پتانسیل هم صفر است."
+  correct="پتانسیل نرده‌ای و میدان برداری است. بین دو بار مساوی و هم‌علامت، در نقطهٔ وسط میدان صفر است ولی پتانسیل دو برابرِ تک‌بار است. صفر بودن یکی، صفر بودن دیگری را نتیجه نمی‌دهد."
+/>

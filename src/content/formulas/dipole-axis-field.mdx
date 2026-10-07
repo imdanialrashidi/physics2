@@ -1,0 +1,52 @@
+---
+type: formula
+title: میدان روی محور دوقطبی
+name: "میدان دوقطبی روی محور (تقریب دور)"
+description: "میدان دوقطبی الکتریکی روی محور آن در فاصلهٔ دور: وابستگی به عکس مکعب فاصله و نقش گشتاور دوقطبی."
+section: charge-field
+difficulty: intermediate
+order: 4
+estimatedMinutes: 8
+prerequisites: [electric-dipole, point-charge-field]
+tags: [دوقطبی, میدان]
+latex: "E = \\frac{p}{2\\pi\\varepsilon_0 r^3}"
+units: "نیوتن بر کولن (N/C)"
+conditions:
+  - فقط وقتی درست است که فاصله خیلی بزرگ‌تر از جدایی دو بار باشد.
+  - نقطه روی خط واصل دو بار (محور دوقطبی) قرار دارد.
+---
+
+import Formula from '../../components/educational/Formula.astro';
+import FormulaBreakdown from '../../components/educational/FormulaBreakdown.astro';
+import Callout from '../../components/educational/Callout.astro';
+
+## وقتی دو بارِ مخالف نزدیک هم‌اند
+
+گشتاور دوقطبی، شناسنامهٔ دوقطبی است:
+
+<Formula
+  id="dipole-moment"
+  latex={"p = qd"}
+  caption="اندازهٔ گشتاور دوقطبی؛ بردار آن از قطب منفی به مثبت است"
+/>
+
+روی محور دوقطبی و در فاصله‌ای که خیلی بزرگ‌تر از جدایی بارهاست (<Formula inline latex={"d \\ll r"} />)، میدان دو بار تقریباً همدیگر را خنثی می‌کنند و فقط یک باقی‌ماندهٔ کوچک می‌ماند:
+
+<Formula
+  id="dipole-axis-field"
+  latex={"E = \\frac{2kqd}{r^3} = \\frac{p}{2\\pi\\varepsilon_0 r^3}"}
+  caption="میدان روی محور دوقطبی در تقریب دور"
+/>
+
+<FormulaBreakdown
+  title="اجزای فرمول"
+  terms={[
+    { term: "p", label: 'گشتاور دوقطبی', detail: 'حاصل‌ضرب بار در فاصلهٔ دو قطب' },
+    { term: "r^3", label: 'مکعب فاصله', detail: 'میدان دوقطبی خیلی زودتر از میدان تک‌بار محو می‌شود' },
+    { term: "2\\pi\\varepsilon_0", label: 'ثابت‌های الکتریکی', detail: 'همان k به زبان گذردهی خلأ' },
+  ]}
+/>
+
+<Callout type="note" title="چرا مکعب؟">
+  از دور، دوقطبی تقریباً خنثی به نظر می‌رسد: اثر بار مثبت و منفی نزدیک هم‌اند و فقط اختلافِ کوچکِ ناشی از جدایی‌شان باقی می‌ماند. همین اختلاف، یک توان اضافه از فاصله می‌آورد: <Formula inline latex={"1/r^2"} /> تبدیل به <Formula inline latex={"1/r^3"} /> می‌شود.
+</Callout>

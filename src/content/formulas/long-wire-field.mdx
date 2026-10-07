@@ -1,0 +1,41 @@
+---
+type: formula
+title: میدان سیم بلند باردار
+name: "میدان سیم مستقیم بلند با گاوس"
+description: "میدان سیم مستقیم و بلند با چگالی خطی یکنواخت: با عکس فاصله کم می‌شود و با استوانهٔ گاوسی به دست می‌آید."
+section: gauss
+difficulty: intermediate
+order: 5
+estimatedMinutes: 6
+prerequisites: [gauss-law, charge-density]
+tags: [سیم, گاوس]
+latex: "E = \\frac{\\lambda}{2\\pi\\epsilon_0 r}"
+units: "نیوتن بر کولن (N/C)"
+conditions:
+  - سیم خیلی بلندتر از فاصلهٔ نقطه تا آن است.
+  - چگالی خطی بار یکنواخت فرض می‌شود.
+---
+
+import Formula from '../../components/educational/Formula.astro';
+import FormulaBreakdown from '../../components/educational/FormulaBreakdown.astro';
+
+## استوانهٔ گاوسی دور سیم
+
+سطح گاوسی را یک استوانهٔ هم‌محور با سیم بگیر؛ شار فقط از سطح جانبی می‌گذرد (<Formula inline latex={"A = 2\\pi rL"} />) و چون بار محصور <Formula inline latex={"\\lambda L"} /> است:
+
+<Formula
+  id="long-wire-field"
+  latex={"E = \\frac{\\lambda}{2\\pi\\epsilon_0 r}"}
+  caption="میدان سیم بلند باردار در فاصلهٔ r"
+/>
+
+<FormulaBreakdown
+  title="اجزای فرمول"
+  terms={[
+    { term: "\\lambda", label: 'چگالی خطی بار', detail: 'بارِ هر متر از سیم، بر حسب کولن بر متر' },
+    { term: "r", label: 'فاصله از محور سیم', detail: 'فقط توان اول — نه مربع' },
+    { term: "2\\pi\\epsilon_0", label: 'ثابت‌ها', detail: 'هندسهٔ استوانه عدد ۲π را آورده است' },
+  ]}
+/>
+
+به توان فاصله دقت کن: تک‌بار با <Formula inline latex={"1/r^2"} />، سیم بلند با <Formula inline latex={"1/r"} /> و صفحهٔ بزرگ با <Formula inline latex={"r^0"} /> (ثابت) کم می‌شوند. هرچه چشمه گسترده‌تر، افت میدان کندتر.

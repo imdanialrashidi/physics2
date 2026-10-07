@@ -1,0 +1,59 @@
+---
+type: formula
+title: کوانتش بار الکتریکی
+name: "کوانتش بار (q = ne)"
+description: "بار هر جسم مضرب صحیحی از بار بنیادی است: مقدار e، بار الکترون و پروتون و معنای فیزیکی آن."
+section: charge-field
+difficulty: beginner
+order: 1
+estimatedMinutes: 5
+tags: [بار, کوانتش]
+latex: "q = ne"
+units: "کولن (C)"
+conditions:
+  - n عددی صحیح و مثبت یا منفی است.
+  - e بار بنیادی و برابر 1.602 ضربدر ده به توان منفی نوزده کولن است.
+---
+
+import Formula from '../../components/educational/Formula.astro';
+import FormulaBreakdown from '../../components/educational/FormulaBreakdown.astro';
+import Callout from '../../components/educational/Callout.astro';
+
+## بار، بسته‌بسته می‌آید
+
+بار الکتریکی مثل آب نیست که هر مقداری بتواند داشته باشد؛ مثل سکه است: فقط مضرب‌های صحیحی از یک واحد پایه ممکن است.
+
+<Formula
+  id="charge-quantization"
+  latex={"q = ne"}
+  caption="کوانتش بار الکتریکی"
+/>
+
+<FormulaBreakdown
+  title="اجزای فرمول"
+  terms={[
+    { term: "q", label: 'بار جسم', detail: 'جمع جبری بارهای مثبت و منفی، بر حسب کولن' },
+    { term: "n", label: 'عدد صحیح', detail: 'مثبت، منفی یا صفر؛ مثلا ۱، ۲، ۳-' },
+    { term: "e", label: 'بار بنیادی', detail: 'کوچک‌ترین بستهٔ بار در طبیعت' },
+  ]}
+/>
+
+بار بنیادی:
+
+<Formula
+  id="elementary-charge"
+  latex={"e = 1.602 \\times 10^{-19} \\; \\text{C}"}
+  caption="مقدار بار بنیادی"
+/>
+
+و بار دو ذرهٔ سازندهٔ اتم:
+
+<Formula
+  id="electron-proton-charge"
+  latex={"q_e = -e \\qquad q_p = +e"}
+  caption="بار الکترون و پروتون"
+/>
+
+<Callout type="tip" title="حس سرانگشتی">
+  یک کولن بار عظیمی است: حدود ۶ میلیارد میلیارد الکترون لازم است تا یک کولن بار منفی ساخته شود. بارهایی که در مسئله‌ها می‌بینی (میکروکولن) هنوز میلیاردها الکترون‌اند.
+</Callout>

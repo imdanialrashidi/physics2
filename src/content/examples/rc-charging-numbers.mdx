@@ -1,0 +1,38 @@
+---
+type: example
+title: شارژ RC با عدد
+description: "مثال عددی مدار RC: ثابت زمانی، درصد شارژ بعد از یک تاو و جریان اولیه و لحظه‌ای."
+section: circuits
+difficulty: intermediate
+order: 1
+estimatedMinutes: 9
+problem: "خازن ۱۰ میکروفاراد با مقاومت ۲۰ کیلواهم به باتری ۹ ولت وصل می‌شود. ثابت زمانی و بار خازن بعد از ۰.۲ ثانیه را حساب کنید."
+formula: rc-charging
+tags: [مدار RC, نمایی]
+---
+
+import WorkedExample from '../../components/educational/WorkedExample.astro';
+
+<WorkedExample
+  id="example-rc-numbers"
+  title="ثابت زمانی و درصد شارژ"
+  problem="خازن C = ۱۰μF از طریق مقاومت R = ۲۰kΩ به باتری ε = ۹V وصل و شروع به شارژ می‌کند. (الف) ثابت زمانی؟ (ب) بار خازن بعد از t = ۰.۲s؟ (ج) جریان اولیه؟"
+  difficulty="intermediate"
+  steps={[
+    {
+      title: 'گام ۱ — ثابت زمانی',
+      content: 'حاصل‌ضرب R در C با تبدیل واحدها.',
+      latex: '\\tau = 20\\times10^3 \\times 10\\times10^{-6} = 0.2\\,\\text{s}'
+    },
+    {
+      title: 'گام ۲ — بار بعد از یک تاو',
+      content: 't دقیقاً برابر τ است پس عامل نمایی e به توان منفی یک می‌شود.',
+      latex: 'q = C\\varepsilon(1-e^{-1}) \\simeq 90\\times0.632 = 56.9\\,\\mu\\text{C}'
+    },
+    {
+      title: 'گام ۳ — جریان اولیه',
+      content: 'در لحظهٔ اول خازن خالی است و مثل سیم رفتار می‌کند.',
+      latex: 'I_0 = \\varepsilon/R = 9/20000 = 0.45\\,\\text{mA}'
+    },
+  ]}
+/>

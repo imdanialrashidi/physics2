@@ -1,0 +1,32 @@
+---
+type: concept
+title: شار الکتریکی و سطح گاوسی
+short: شار، جمع مؤلفهٔ عمود میدان روی یک سطح است و سطح گاوسی ابزار قانون گاوس است.
+description: "شار الکتریکی: معنای شهودی تعداد خط‌های عبوری، نقش زاویه و انتخاب سطح گاوسی مناسب هر تقارن."
+section: gauss
+difficulty: intermediate
+order: 2
+estimatedMinutes: 7
+prerequisites: [electric-field, charge-density]
+tags: [شار, گاوس, تقارن]
+formulas: [gauss-law]
+---
+
+import Definition from '../../components/educational/Definition.astro';
+import Callout from '../../components/educational/Callout.astro';
+
+## شار یعنی چه؟
+
+<Definition term="شار الکتریکی" id="flux-def" alt="Electric flux">
+  جمعِ مؤلفهٔ عمودِ میدان روی همهٔ یک سطح؛ شهودش «تعداد خط‌های میدانی که از سطح رد می‌شوند».
+</Definition>
+
+میدانی که مماس بر سطح بتابد شاری نمی‌سازد؛ فقط بخشِ عمود مهم است. برای سطح بسته، خط‌هایی که بیرون می‌روند شار مثبت و آن‌هایی که داخل می‌آیند شار منفی می‌سازند.
+
+<Definition term="سطح گاوسی" id="gaussian-surface-def">
+  سطحِ فرضیِ بسته‌ای که خودت برای ساده کردن محاسبه انتخاب می‌کنی؛ انتخاب خوب یعنی سطحی که میدان رویش ثابت و عمود باشد.
+</Definition>
+
+<Callout type="tip" title="سه انتخاب طلایی">
+  تقارن کروی ← کره. سیم بلند ← استوانهٔ هم‌محور. صفحهٔ بزرگ ← جعبه‌ای که عمود بر صفحه رد شود. اگر مسئله یکی از این سه تقارن را ندارد، گاوس میان‌بُر نیست.
+</Callout>

@@ -1,0 +1,36 @@
+---
+type: concept
+title: خازن و دی‌الکتریک
+short: خازن وسیلهٔ ذخیرهٔ بار و انرژی است و دی‌الکتریک ظرفیتش را چند برابر می‌کند.
+description: "خازن: ساختار دو رسانا با عایق، اتصال سری و موازی، انرژی ذخیره‌شده و اثر دی‌الکتریک."
+section: potential
+difficulty: beginner
+order: 2
+estimatedMinutes: 8
+prerequisites: [electric-potential]
+tags: [خازن, دی‌الکتریک]
+formulas: [parallel-plate-capacitor, capacitor-energy]
+---
+
+import Formula from '../../components/educational/Formula.astro';
+import Definition from '../../components/educational/Definition.astro';
+import Callout from '../../components/educational/Callout.astro';
+
+## انبارِ بار
+
+<Definition term="خازن" id="capacitor-def" alt="Capacitor">
+  دو رسانا با یک عایق (دی‌الکتریک) بینشان که بار و انرژی الکتریکی ذخیره می‌کند.
+</Definition>
+
+اتصال‌ها را با یک جمله از هم جدا کن:
+
+- **موازی:** ولتاژ همه یکی است و ظرفیت‌ها **جمع** می‌شوند: <Formula inline latex={"C_{eq} = C_1 + C_2 + \\cdots"} />.
+- **سری:** بارِ همه یکی است و معکوس ظرفیت‌ها **جمع** می‌شود: <Formula inline latex={"1/C_{eq} = 1/C_1 + 1/C_2 + \\cdots"} />.
+
+<Definition term="دی‌الکتریک" id="dielectric-def">
+  مادهٔ عایقی که بین صفحات خازن می‌نشیند و ظرفیت را <Formula inline latex={"\\kappa"} /> برابر می‌کند: <Formula inline latex={"C = \\kappa C_0"} />.
+</Definition>
+
+<Callout type="tip" title="دامِ سری و موازی">
+  فرمول سریِ خازن‌ها شبیه فرمول موازیِ مقاومت‌هاست و برعکس. اگر قاطی کردی، حالت حدی را چک کن: دو خازن مساویِ سری، ظرفیتشان نصف می‌شود (مثل دو سد پشت سر هم که عبور را سخت‌تر می‌کنند).
+</Callout>

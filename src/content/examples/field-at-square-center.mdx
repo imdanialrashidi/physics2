@@ -1,0 +1,48 @@
+---
+type: example
+title: میدان در مرکز مربع باردار
+description: "چهار بار نامساوی روی رأس‌های مربع: میدان هر بار در مرکز، ترکیب قطرها و اندازهٔ میدان خالص."
+section: charge-field
+difficulty: intermediate
+order: 4
+estimatedMinutes: 10
+problem: "بارهای ۱، ۲، ۴ و ۲- میکروکولن روی رأس‌های مربعی به ضلع ۴ سانتی‌متر‌اند. میدان خالص در مرکز مربع را حساب کنید."
+formula: point-charge-field
+tags: [میدان, مربع, برهم‌نهی]
+---
+
+import WorkedExample from '../../components/educational/WorkedExample.astro';
+import Callout from '../../components/educational/Callout.astro';
+
+<WorkedExample
+  id="example-square-center-field"
+  title="میدان مرکز مربع با چهار بار نامساوی"
+  problem="q₁ = ۱μC ،q₂ = ۲μC ،q₃ = ۴μC و q₄ = ‎−۲μC‏ روی رأس‌های مربعی به ضلع a = ۴cm قرار دارند. میدان خالص در مرکز را پیدا کنید."
+  difficulty="intermediate"
+  steps={[
+    {
+      title: 'گام ۱ — فاصلهٔ هر رأس تا مرکز',
+      content: 'قطر مربع a√۲ است پس هر رأس تا مرکز نصف آن فاصله دارد.',
+      latex: 'r = 2\\sqrt2\\,\\text{cm} \\qquad r^2 = 8\\times10^{-4}\\,\\text{m}^2'
+    },
+    {
+      title: 'گام ۲ — میدان تک‌تک بارها',
+      content: 'با E = kq/r² میدان هر بار در مرکز حساب می‌شود.',
+      latex: 'E_1 = \\frac{9}{8}\\times10^7 \\; E_2 = E_4 = \\frac94\\times10^7 \\; E_3 = \\frac92\\times10^7'
+    },
+    {
+      title: 'گام ۳ — ترکیب روی قطرها',
+      content: 'بارهای روبه‌رو روی یک قطرند: اگر هم‌علامت باشند کم و اگر مخالف باشند جمع می‌شوند.',
+      latex: 'E_{13} = E_3 - E_1 = \\frac{27}{8}\\times10^7 \\qquad E_{24} = E_2 + E_4 = \\frac92\\times10^7'
+    },
+    {
+      title: 'گام ۴ — میدان خالص',
+      content: 'دو قطر بر هم عمودند پس اندازهٔ نهایی از فیثاغورس می‌آید.',
+      latex: 'E = \\sqrt{E_{13}^2 + E_{24}^2} = \\sqrt{(27/8)^2 + (9/2)^2}\\times10^7\\,\\text{N/C}'
+    },
+  ]}
+/>
+
+<Callout type="note" title="ادامهٔ جزوه">
+  در جزوه از دانشجو خواسته شده مؤلفه‌ها و جهت نهایی میدان را هم تعیین کند؛ با داشتن اندازهٔ دو مؤلفهٔ عمود، جهت از تانژانت وارون به دست می‌آید.
+</Callout>

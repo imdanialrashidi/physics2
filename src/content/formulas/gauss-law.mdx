@@ -1,0 +1,60 @@
+---
+type: formula
+title: قانون گاوس
+name: "قانون گاوس (شار و بار محصور)"
+description: "قانون گاوس: شار میدان از هر سطح بسته برابر بار محصور تقسیم بر گذردهی خلأ است؛ ابزار اصلی میدان در تقارن‌ها."
+section: gauss
+difficulty: intermediate
+order: 3
+estimatedMinutes: 9
+prerequisites: [electric-flux]
+tags: [گاوس, شار, تقارن]
+latex: "\\Phi_E = \\frac{q_{net}}{\\epsilon_0}"
+units: "شار بر حسب نیوتن‌مترمربع بر کولن"
+conditions:
+  - سطح گاوسی باید بسته و فرضی باشد.
+  - فقط بار داخل سطح در q_net شمرده می‌شود.
+---
+
+import Formula from '../../components/educational/Formula.astro';
+import FormulaBreakdown from '../../components/educational/FormulaBreakdown.astro';
+import Callout from '../../components/educational/Callout.astro';
+import Misconception from '../../components/educational/Misconception.astro';
+
+## شارژِ محصور، سرنوشتِ شار را تعیین می‌کند
+
+قانون گاوس می‌گوید لازم نیست تک‌تک بارها را جمع بزنی؛ فقط بپرس «داخل سطح من چقدر بار است؟»:
+
+<Formula
+  id="gauss-law"
+  latex={"\\Phi_E = \\frac{q_{net}}{\\epsilon_0}"}
+  caption="قانون گاوس"
+/>
+
+با تعریف شار:
+
+<Formula
+  id="flux-definition"
+  latex={"\\Phi_E = \\oint \\vec{E} \\cdot d\\vec{A}"}
+  caption="تعریف شار الکتریکی از یک سطح بسته"
+/>
+
+<FormulaBreakdown
+  title="اجزای فرمول"
+  terms={[
+    { term: "\\Phi_E", label: 'شار الکتریکی', detail: 'جمعِ مؤلفهٔ عمودِ میدان روی همهٔ سطح' },
+    { term: "q_{net}", label: 'بار خالص محصور', detail: 'فقط بارهای داخل سطح؛ بیرونی‌ها شمرده نمی‌شوند' },
+    { term: "\\epsilon_0", label: 'گذردهی خلأ', detail: 'همان ثابت همیشگی الکتریسیته' },
+  ]}
+/>
+
+قدرت واقعی گاوس وقتی ظاهر می‌شود که تقارن داشته باشی: میدان روی سطح گاوسی ثابت و عمود باشد تا انتگرال به ضرب ساده <Formula inline latex={"EA"} /> تبدیل شود. سه سطحِ طلایی: کره (تقارن کروی)، استوانهٔ هم‌محور (سیم بلند) و جعبهٔ عمود بر صفحه (صفحهٔ باردار).
+
+<Misconception
+  wrong="بارهای بیرون سطح گاوسی روی میدان داخل هیچ اثری ندارند."
+  correct="قانون گاوس فقط دربارهٔ شارِ کل حرف می‌زند، نه میدانِ هر نقطه. بار بیرونی در شارِ کل سهمی ندارد ولی می‌تواند میدان نقطه‌ای را عوض کند؛ شارِ ورودی و خروجی‌اش همدیگر را خنثی می‌کنند."
+/>
+
+<Callout type="warning" title="شرط استفاده">
+  گاوس همیشه درست است ولی همیشه مفید نیست. بدون تقارنِ کروی، استوانه‌ای یا صفحه‌ای، انتگرال ساده نمی‌شود و باید به انتگرال مستقیم برگردی.
+</Callout>

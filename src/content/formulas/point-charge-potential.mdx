@@ -1,0 +1,68 @@
+---
+type: formula
+title: پتانسیل بار نقطه‌ای
+name: "پتانسیل الکتریکی بار نقطه‌ای"
+description: "پتانسیل بار نقطه‌ای و رابطهٔ آن با میدان: کمیت نرده‌ای که با جمع جبری برای چند بار ترکیب می‌شود."
+section: potential
+difficulty: beginner
+order: 1
+estimatedMinutes: 7
+prerequisites: [electric-potential, point-charge-field]
+tags: [پتانسیل, بار نقطه‌ای]
+latex: "V = \\frac{kq}{r}"
+units: "ولت (V) معادل ژول بر کولن"
+conditions:
+  - صفر پتانسیل در بی‌نهایت فرض شده است.
+  - علامت بار در علامت پتانسیل اثر دارد.
+---
+
+import Formula from '../../components/educational/Formula.astro';
+import FormulaBreakdown from '../../components/educational/FormulaBreakdown.astro';
+import Callout from '../../components/educational/Callout.astro';
+
+## از بردار به عدد
+
+میدان بردار بود و جمعش دردسر داشت؛ پتانسیل فقط یک عدد است. برای چند بار، به‌جای جمع برداری کافی است عددها را جمع بزنی:
+
+<Formula
+  id="point-charge-potential"
+  latex={"V = \\frac{kq}{r}"}
+  caption="پتانسیل بار نقطه‌ای در فاصلهٔ r (صفر در بی‌نهایت)"
+/>
+
+و برای چند بار:
+
+<Formula
+  id="many-charge-potential"
+  latex={"V = k\\sum_i \\frac{q_i}{r_i}"}
+  caption="پتانسیل چند بار: جمع جبری ساده"
+/>
+
+<FormulaBreakdown
+  title="اجزای فرمول"
+  terms={[
+    { term: "V", label: 'پتانسیل', detail: 'انرژیِ هر کولن بار در آن نقطه، بر حسب ولت' },
+    { term: "q", label: 'بار چشمه', detail: 'با علامت؛ بار منفی پتانسیل منفی می‌سازد' },
+    { term: "r", label: 'فاصله', detail: 'توان اول — پتانسیل کندتر از میدان افت می‌کند' },
+  ]}
+/>
+
+پل میدان و پتانسیل، دوطرفه است. اختلاف پتانسیل از میدان:
+
+<Formula
+  id="potential-from-field"
+  latex={"V_B - V_A = -\\int_A^B \\vec{E} \\cdot d\\vec{s}"}
+  caption="اختلاف پتانسیل از انتگرال میدان"
+/>
+
+و میدان از پتانسیل (در یک بعد):
+
+<Formula
+  id="field-from-potential"
+  latex={"E = -\\frac{dV}{dx}"}
+  caption="میدان، شیبِ منفیِ پتانسیل است؛ در جهت کاهش پتانسیل"
+/>
+
+<Callout type="tip" title="جملهٔ طلایی">
+  میدان در جهت کاهش پتانسیل است — مثل توپی که به سمت پایینِ تپه می‌غلتد. بار مثبتِ تنها همیشه به سمت پتانسیلِ کمتر حرکت می‌کند.
+</Callout>

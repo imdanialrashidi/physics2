@@ -1,0 +1,61 @@
+---
+type: formula
+title: نیروی مغناطیسی بر بار متحرک
+name: "نیروی لورنتس مغناطیسی و قاعدهٔ دست راست"
+description: "نیروی وارد بر بار متحرک در میدان مغناطیسی: حاصل‌ضرب برداری سرعت در میدان و سه حالت زاویه‌ای مهم."
+section: magnetism
+difficulty: beginner
+order: 1
+estimatedMinutes: 8
+prerequisites: [magnetic-field]
+tags: [مغناطیس, نیرو, دست راست]
+latex: "\\vec{F} = q\\vec{v} \\times \\vec{B}"
+units: "نیوتن (N) و تسلا (T)"
+conditions:
+  - فقط بر بارِ در حال حرکت نیرو وارد می‌شود.
+  - برای بار منفی، جهت نیرو برعکس قاعدهٔ دست راست است.
+---
+
+import Formula from '../../components/educational/Formula.astro';
+import FormulaBreakdown from '../../components/educational/FormulaBreakdown.astro';
+import Callout from '../../components/educational/Callout.astro';
+import Misconception from '../../components/educational/Misconception.astro';
+
+## نیرویی که همیشه عمود است
+
+<Formula
+  id="magnetic-force-charge"
+  latex={"\\vec{F} = q\\vec{v} \\times \\vec{B}"}
+  caption="نیروی مغناطیسی وارد بر بار متحرک"
+/>
+
+اندازهٔ آن:
+
+<Formula
+  id="magnetic-force-magnitude"
+  latex={"F = qvB\\sin\\theta"}
+  caption="اندازهٔ نیروی مغناطیسی؛ θ زاویهٔ سرعت با میدان است"
+/>
+
+<FormulaBreakdown
+  title="اجزای فرمول"
+  terms={[
+    { term: "q", label: 'بار ذره', detail: 'علامتش جهت نیرو را برعکس می‌کند' },
+    { term: "v", label: 'سرعت ذره', detail: 'اگر صفر باشد، نیروی مغناطیسی هم صفر است' },
+    { term: "B", label: 'میدان مغناطیسی', detail: 'بر حسب تسلا' },
+    { term: "\\sin\\theta", label: 'عامل زاویه', detail: 'فقط مؤلفهٔ عمود بر میدان نیرو می‌سازد' },
+  ]}
+/>
+
+سه حالت را با هم ببین: موازی (<Formula inline latex={"\\theta = 0"} />) یعنی نیرو صفر؛ عمود (<Formula inline latex={"\\theta = 90^\\circ"} />) یعنی بیشینه <Formula inline latex={"F = qvB"} />؛ مایل یعنی چیزی بین این دو.
+
+قاعدهٔ دست راست برای بار مثبت: انگشت‌ها در جهت سرعت، کف دست به سمت میدان بچرخد، شست جهت نیرو را نشان می‌دهد. برای بار منفی، خلاف شست.
+
+<Misconception
+  wrong="میدان مغناطیسی سرعت ذره را زیاد می‌کند."
+  correct="نیروی مغناطیسی همیشه بر سرعت عمود است، پس کاری انجام نمی‌دهد و اندازهٔ سرعت (انرژی جنبشی) ثابت می‌ماند؛ فقط جهت سرعت می‌چرخد. برای تند کردن ذره به میدان الکتریکی نیاز است."
+/>
+
+<Callout type="warning" title="بار ساکن، نیروی مغناطیسی ندارد">
+  اگر ذره نسبت به میدان ساکن باشد (<Formula inline latex={"v=0"} />)، نیروی مغناطیسی صفر است — هرچقدر هم میدان قوی باشد. این رایج‌ترین تلهٔ سؤال‌های مفهومی است.
+</Callout>

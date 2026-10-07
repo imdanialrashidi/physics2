@@ -1,0 +1,37 @@
+---
+type: concept
+title: چگالی بار
+short: توصیف نحوهٔ پخش بار روی خط، سطح و حجم با سه چگالی خطی، سطحی و حجمی.
+description: "چگالی‌های خطی، سطحی و حجمی بار: تعریف، واحد و رابطهٔ هر کدام با المان بار در انتگرال میدان."
+section: gauss
+difficulty: beginner
+order: 1
+estimatedMinutes: 6
+prerequisites: [electric-charge]
+tags: [چگالی, توزیع پیوسته]
+---
+
+import Formula from '../../components/educational/Formula.astro';
+import Definition from '../../components/educational/Definition.astro';
+
+## وقتی بار، نقطه نیست
+
+بارِ پخش‌شده روی سیم، صفحه یا حجم را نمی‌شود یک نقطه فرض کرد. جسم را به تکه‌های خیلی کوچک <Formula inline latex={"dq"} /> می‌شکنیم و میدان هر تکه (<Formula inline latex={"dE = k\\,dq/r^2"} />) را جمع — یعنی انتگرال — می‌زنیم:
+
+<Formula
+  id="continuous-field-integral"
+  latex={"\\vec{E} = \\int_{\\text{تمام جسم}} d\\vec{E}"}
+  caption="میدان توزیع پیوستهٔ بار"
+/>
+
+<Definition term="چگالی خطی بار" id="lambda-def">
+  بارِ هر متر از سیم: <Formula inline latex={"\\lambda = Q/L"} /> بر حسب کولن بر متر؛ المان بار <Formula inline latex={"dq = \\lambda\\,dl"} />.
+</Definition>
+
+<Definition term="چگالی سطحی بار" id="sigma-def">
+  بارِ هر مترمربع از سطح: <Formula inline latex={"\\sigma = Q/A"} /> بر حسب کولن بر مترمربع؛ المان بار <Formula inline latex={"dq = \\sigma\\,dA"} />.
+</Definition>
+
+<Definition term="چگالی حجمی بار" id="rho-def">
+  بارِ هر مترمکعب از حجم: <Formula inline latex={"\\rho = Q/V"} /> بر حسب کولن بر مترمکعب؛ المان بار <Formula inline latex={"dq = \\rho\\,dV"} />.
+</Definition>

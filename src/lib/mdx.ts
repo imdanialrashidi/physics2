@@ -23,6 +23,14 @@ import GlossaryTerm from '../components/educational/GlossaryTerm.astro';
 import Quiz from '../components/educational/Quiz.astro';
 import StepReveal from '../components/educational/StepReveal.astro';
 import ParamLab from '../components/educational/ParamLab.astro';
+import PhysicsCoulombLab from '../components/educational/PhysicsCoulombLab.astro';
+import PhysicsVectorTrainer from '../components/educational/PhysicsVectorTrainer.astro';
+import PhysicsRightHandTrainer from '../components/educational/PhysicsRightHandTrainer.astro';
+import PhysicsChargedParticleLab from '../components/educational/PhysicsChargedParticleLab.astro';
+import PhysicsCircuitBuilder from '../components/educational/PhysicsCircuitBuilder.astro';
+import PhysicsRCSandbox from '../components/educational/PhysicsRCSandbox.astro';
+import PhysicsGaussTrainer from '../components/educational/PhysicsGaussTrainer.astro';
+import PhysicsCapacitorLab from '../components/educational/PhysicsCapacitorLab.astro';
 
 export const mdxComponents = {
   Callout,
@@ -38,4 +46,12 @@ export const mdxComponents = {
   StepReveal,
   ParamLab,
   Quiz,
+  PhysicsCoulombLab,
+  PhysicsVectorTrainer,
+  PhysicsRightHandTrainer,
+  PhysicsChargedParticleLab,
+  PhysicsCircuitBuilder,
+  PhysicsRCSandbox,
+  PhysicsGaussTrainer,
+  PhysicsCapacitorLab,
 };

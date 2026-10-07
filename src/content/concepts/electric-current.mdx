@@ -1,0 +1,40 @@
+---
+type: concept
+title: جریان، مقاومت و قوانین مدار
+short: جریانِ بارِ در حال حرکت، مقاومتِ مخالف آن و دو قانون کیرشهف برای تحلیل مدار.
+description: "جریان و چگالی جریان، سرعت رانشی، نیروی محرکه و مقاومت داخلی، و قوانین گره و حلقهٔ کیرشهف."
+section: circuits
+difficulty: beginner
+order: 1
+estimatedMinutes: 9
+prerequisites: [electric-potential, conductor-insulator]
+tags: [جریان, مقاومت, کیرشهف]
+formulas: [ohm-law, electric-power]
+---
+
+import Formula from '../../components/educational/Formula.astro';
+import Definition from '../../components/educational/Definition.astro';
+import Callout from '../../components/educational/Callout.astro';
+
+## بارِ به‌راه‌افتاده
+
+<Definition term="جریان الکتریکی" id="current-def" alt="Electric current">
+  بارِ عبوری از یک سطح در هر ثانیه: <Formula inline latex={"I = dQ/dt"} /> بر حسب آمپر. جهت قراردادی‌اش، جهت حرکت بار مثبت است.
+</Definition>
+
+چگالی جریان (<Formula inline latex={"J = I/A"} />) به دنیای میکروسکوپی وصل می‌شود: <Formula inline latex={"J = nqv_d"} /> که <Formula inline latex={"v_d"} /> سرعتِ رانشیِ الکترون‌هاست — سرعتی کند و میانگین، سوار بر حرکتِ تصادفیِ تندِ آن‌ها.
+
+<Definition term="نیروی محرکه" id="emf-def" alt="EMF">
+  انرژیِ غیرالکتریکی‌ای که باتری به‌ازای هر کولن بار تزریق می‌کند: <Formula inline latex={"\\varepsilon = W/q"} />. با مقاومت داخلی <Formula inline latex={"r"} />، ولتاژ دوسر باتری <Formula inline latex={"V = \\varepsilon - Ir"} /> می‌شود.
+</Definition>
+
+قوانین کیرشهف، حسابداریِ مدارند:
+
+- **قانون گره:** جمع جریان‌های هر گره صفر است (<Formula inline latex={"\\sum I = 0"} />) — بار نه تولید می‌شود نه گم.
+- **قانون حلقه:** جمع تغییرات پتانسیل در هر مسیر بسته صفر است (<Formula inline latex={"\\sum \\Delta V = 0"} />) — دور بزنی و برگردی سر جای اول، پتانسیل همان است.
+
+مدارهای مقاومتی هم مثل خازن‌ها ولی برعکس‌اند: سری‌ها جمع می‌شوند (<Formula inline latex={"R_{eq} = R_1 + R_2 + \\cdots"} />) و موازی‌ها با جمعِ معکوس (<Formula inline latex={"1/R_{eq} = 1/R_1 + 1/R_2 + \\cdots"} />).
+
+<Callout type="warning" title="جهت قراردادی را فراموش نکن">
+  الکترون‌ها خلاف جهتِ جریانِ قراردادی حرکت می‌کنند. در تحلیل مدار همیشه با جریانِ قراردادی (جهت بار مثبت) کار کن تا علامت‌ها به‌هم نریزد.
+</Callout>

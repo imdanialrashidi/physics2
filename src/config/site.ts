@@ -21,12 +21,15 @@ import type { CreatorIdentity, SocialLink } from '../lib/types';
 import { courseConfig } from './course';
 
 // ─── EDIT HERE: change identity in one place ────────────────────────────────
-// Change these three usernames + two URLs and the entire site follows. URLs
+// Change these three usernames + three URLs and the entire site follows. URLs
 // below are derived from the usernames so they cannot drift out of sync.
+// TELEGRAM_CHANNEL_URL is the invite link for the discovery popup and may
+// point somewhere else than the personal Telegram profile.
 
 const GITHUB_USERNAME = 'imdanialrashidi';
 const INSTAGRAM_USERNAME = 'imdanialrashidi';
 const TELEGRAM_USERNAME = 'imdanialrashidi';
+const TELEGRAM_CHANNEL_URL = 'https://t.me/danialrashidi_projects';
 
 const PERSONAL_WEBSITE = 'https://imdanialrashidi.github.io';
 const STUDY_HUB = 'https://study.danialrashidi.ir';
@@ -43,6 +46,7 @@ export const creator: CreatorIdentity = {
   website: PERSONAL_WEBSITE,
   telegram: `https://t.me/${TELEGRAM_USERNAME}`,
   telegramUsername: TELEGRAM_USERNAME,
+  telegramChannel: TELEGRAM_CHANNEL_URL,
   github: `https://github.com/${GITHUB_USERNAME}`,
   githubUsername: GITHUB_USERNAME,
   instagram: `https://www.instagram.com/${INSTAGRAM_USERNAME}`,

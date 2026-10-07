@@ -1,0 +1,58 @@
+---
+type: formula
+title: میدان سیم مستقیم و حلقهٔ جریان
+name: "میدان سیم بلند و مرکز حلقهٔ جریان‌دار"
+description: "میدان مغناطیسی سیم مستقیم بلند و مرکز حلقهٔ دایره‌ای جریان‌دار، به‌همراه جهت‌یابی با دست راست."
+section: magnetism
+difficulty: intermediate
+order: 3
+estimatedMinutes: 7
+prerequisites: [magnetic-force-charge]
+tags: [سیم, حلقه, بیو ساوار]
+latex: "B = \\frac{\\mu_0 I}{2\\pi r}"
+units: "تسلا (T)"
+conditions:
+  - سیم خیلی بلندتر از فاصلهٔ نقطه تا آن است.
+  - برای N دور حلقه، میدان N برابر می‌شود.
+---
+
+import Formula from '../../components/educational/Formula.astro';
+import Callout from '../../components/educational/Callout.astro';
+
+## هر جریان، میدان می‌سازد
+
+سیم مستقیم بلند:
+
+<Formula
+  id="straight-wire-field"
+  latex={"B = \\frac{\\mu_0 I}{2\\pi r}"}
+  caption="میدان در فاصلهٔ r از سیم بلند حامل جریان I"
+/>
+
+مرکز حلقهٔ دایره‌ای به شعاع <Formula inline latex={"R"} />:
+
+<Formula
+  id="loop-center-field"
+  latex={"B = \\frac{\\mu_0 I}{2R} \\qquad (B = \\frac{\\mu_0 NI}{2R} \\; \\text{برای N دور})"}
+  caption="میدان در مرکز حلقهٔ جریان‌دار"
+/>
+
+ثابت تراوایی خلأ:
+
+<Formula
+  id="vacuum-permeability"
+  latex={"\\mu_0 = 4\\pi \\times 10^{-7} \\; \\text{T} \\cdot \\text{m/A}"}
+  caption="ثابت تراوایی مغناطیسی خلأ"
+/>
+
+ریشهٔ هر دو، قانون بیو–ساوار برای تکه‌جریان‌هاست:
+
+<Formula
+  id="biot-savart"
+  latex={"d\\vec{B} = \\frac{\\mu_0}{4\\pi}\\frac{I\\,d\\vec{l} \\times \\hat{r}}{r^2}"}
+  caption="قانون بیو–ساوار"
+/>
+
+<Callout type="tip" title="جهت‌یابی سیم">
+  شست دست راست در جهت جریان؛ انگشت‌های خمیده جهت میدانِ دورِ سیم را نشان می‌دهند. بالای سیم و پایین آن، میدان خلاف جهت هم است.
+</Callout>

@@ -43,7 +43,7 @@ const browser = await chromium.launch({ headless: true, executablePath: resolveC
   const errors = [];
   page.on('pageerror', (e) => errors.push(e.message));
 
-  await page.goto(`${base}/practice/practice-foundations`, { waitUntil: 'networkidle' });
+  await page.goto(`${base}/practice/practice-charge-field`, { waitUntil: 'networkidle' });
 
   const quiz = page.locator('section[aria-labelledby$="-title"]').first();
   await quiz.waitFor({ state: 'visible', timeout: 10000 });
@@ -65,14 +65,14 @@ const browser = await chromium.launch({ headless: true, executablePath: resolveC
   check('quiz: submit disabled before answering', await submit.isDisabled());
 
   // Independent oracle: read from the lesson content, not from the app's own
-  // output. q1=a, q2=b (decreasing), q3=true, q4=b (product rule), q5=3.
+  // output. q1=a (repel), q2=b (N/C), q3=true (toward negative), q5=c (1/r^3), q4=1.8 N.
   const questions = quiz.locator('ol > li');
-  const CORRECT_PICKS = ['a', 'b', 'true', 'b'];
+  const CORRECT_PICKS = ['a', 'b', 'true', 'c'];
   for (let i = 0; i < CORRECT_PICKS.length; i += 1) {
     await questions.nth(i).locator(`label:has(input[value="${CORRECT_PICKS[i]}"])`).click();
   }
   // Numeric questions take typed input (Persian digits accepted too).
-  await questions.nth(4).locator('input[type="text"]').fill('3');
+  await questions.nth(4).locator('input[type="text"]').fill('1.8');
 
   check('quiz: submit enabled after answering all', await submit.isEnabled());
   await submit.click();
@@ -102,7 +102,7 @@ const browser = await chromium.launch({ headless: true, executablePath: resolveC
   // Score must survive a reload through the progress store.
   await page.reload({ waitUntil: 'networkidle' });
   const stored = await page.evaluate(() => localStorage.getItem('dr-study-progress:v1'));
-  check('quiz: score persisted to localStorage', Boolean(stored && stored.includes('practice-foundations-1')));
+  check('quiz: score persisted to localStorage', Boolean(stored && stored.includes('quiz-charge-field-1')));
 
   check('quiz: no uncaught page errors', errors.length === 0, errors.join(' | '));
   await context.close();
@@ -112,7 +112,7 @@ const browser = await chromium.launch({ headless: true, executablePath: resolveC
 {
   const context = await browser.newContext({ viewport: { width: 1280, height: 900 }, locale: 'fa-IR' });
   const page = await context.newPage();
-  await page.goto(`${base}/examples/chain-rule-example`, { waitUntil: 'networkidle' });
+  await page.goto(`${base}/examples/triangle-three-charges`, { waitUntil: 'networkidle' });
 
   const reveal = page.locator('section[aria-label="راه‌حل گام‌به‌گام"]');
   await reveal.waitFor({ state: 'visible', timeout: 10000 });
@@ -155,14 +155,14 @@ const browser = await chromium.launch({ headless: true, executablePath: resolveC
   });
   check('search: island actually hydrated', true);
 
-  await input.fill('مشتق');
+  await input.fill('کولن');
   await page.waitForTimeout(250);
   const results = await page.locator('main ul li a').count();
   check('search: returns results for a Persian query', results >= 3, `${results} results`);
 
   // Arabic keyboard variant of the same word must still match.
   await input.fill('');
-  await input.type('مشتق', { delay: 10 });
+  await input.type('کولن', { delay: 10 });
   await page.waitForTimeout(250);
   check('search: typed query still matches', (await page.locator('main ul li a').count()) >= 3);
 
@@ -182,7 +182,7 @@ const browser = await chromium.launch({ headless: true, executablePath: resolveC
 {
   const context = await browser.newContext({ viewport: { width: 390, height: 844 }, locale: 'fa-IR' });
   const page = await context.newPage();
-  await page.goto(`${base}/lessons/01-intro-to-calculus`, { waitUntil: 'networkidle' });
+  await page.goto(`${base}/lessons/charge-and-electric-field`, { waitUntil: 'networkidle' });
 
   const toggle = page.getByRole('button', { name: 'تمام کردم' });
   await toggle.scrollIntoViewIfNeeded();
@@ -221,7 +221,7 @@ const browser = await chromium.launch({ headless: true, executablePath: resolveC
   check('progress: homepage readout reflects stored progress', readout === 1);
 
   // Unmarking must remove it.
-  await page.goto(`${base}/lessons/01-intro-to-calculus`, { waitUntil: 'networkidle' });
+  await page.goto(`${base}/lessons/charge-and-electric-field`, { waitUntil: 'networkidle' });
   await page.getByRole('button', { name: 'تمام کردم' }).scrollIntoViewIfNeeded();
   await page.waitForFunction(() => document.documentElement.dataset.progressHydrated === 'true', null, {
     timeout: 10000,
@@ -273,8 +273,46 @@ const browser = await chromium.launch({ headless: true, executablePath: resolveC
   );
 
   await nav.getByRole('link', { name: 'واژه‌نامه' }).click();
-  await page.waitForURL('**/glossary');
+  // View-transition navigation may swap content without a full load event,
+  // so assert on the location itself rather than on a navigation race.
+  await page.waitForFunction(() => window.location.pathname.includes('/glossary'), null, { timeout: 10000 });
   check('mobile: nav link navigates', page.url().includes('/glossary'));
+  await context.close();
+}
+
+/* ── Physics course islands (Coulomb lab as representative) ─────────────── */
+{
+  const context = await browser.newContext({ viewport: { width: 390, height: 844 }, locale: 'fa-IR' });
+  const page = await context.newPage();
+  const errors = [];
+  page.on('pageerror', (e) => errors.push(e.message));
+  await page.goto(`${base}/lessons/charge-and-electric-field`, { waitUntil: 'networkidle' });
+
+  const lab = page.getByRole('region', { name: 'آزمایشگاه قانون کولن' });
+  await lab.scrollIntoViewIfNeeded();
+  await page.waitForFunction(() => document.documentElement.dataset.coulombLabHydrated === 'true', null, {
+    timeout: 10000,
+  });
+  check('lab: coulomb island actually hydrated', true);
+
+  // The slider readouts are <output> (implicit status role); the lab verdict
+  // is the explicit <p role="status"> rendered by LiveReadout.
+  const readout = lab.locator('p[role="status"]');
+  const before = await readout.innerText();
+  check('lab: live readout shows a newton value', before.includes('نیوتن'), before.trim().slice(0, 60));
+
+  // Moving the distance slider must recompute the force (real calculation).
+  await lab.locator('input[type="range"]').nth(2).fill('20');
+  await page.waitForTimeout(200);
+  const after = await readout.innerText();
+  check('lab: slider change recomputes the force', after !== before, after.trim().slice(0, 60));
+
+  // Reset must restore the settled defaults.
+  await lab.getByRole('button', { name: 'بازنشانی' }).click();
+  await page.waitForTimeout(200);
+  check('lab: reset restores defaults', (await readout.innerText()) === before);
+
+  check('lab: no uncaught page errors', errors.length === 0, errors.join(' | '));
   await context.close();
 }
 

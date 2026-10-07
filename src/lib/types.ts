@@ -22,6 +22,8 @@ export interface CreatorIdentity {
   telegram: string;
   /** Telegram username without @. */
   telegramUsername: string;
+  /** Invite/channel URL used by the Telegram discovery popup. */
+  telegramChannel: string;
   /** GitHub profile URL. */
   github: string;
   /** GitHub username without @. */
@@ -99,6 +101,17 @@ export interface CourseFeatures {
 
 export interface CourseConfig {
   title: string;
+  /**
+   * Short wordmark for the header lockup (e.g. «فیزیک ۲»).
+   * Falls back to `title` when omitted so existing courses keep working.
+   */
+  headerTitle?: string;
+  /**
+   * Header mark motif. `book` is the shared default; a course may pick a
+   * motif that reads as its own subject (e.g. `atom` for physics). The names
+   * are neutral on purpose — the engine never branches on a discipline.
+   */
+  headerMark?: 'book' | 'atom';
   /** One-line promise shown under the hero title (configurable per course). */
   tagline?: string;
   description: string;

@@ -1,0 +1,50 @@
+---
+type: formula
+title: قانون آمپر و میدان سلونوئید
+name: "قانون آمپر و میدان داخل سیم‌لوله"
+description: "قانون آمپر برای جریان محصور و میدان یکنواخت داخل سلونوئید بلند از روی چگالی دورها."
+section: magnetism
+difficulty: advanced
+order: 4
+estimatedMinutes: 9
+prerequisites: [straight-wire-field]
+tags: [آمپر, سلونوئید]
+latex: "\\oint \\vec{B} \\cdot d\\vec{l} = \\mu_0 I_{enc}"
+units: "تسلا (T)"
+conditions:
+  - مسیر آمپری بسته و فرضی است.
+  - فقط جریانی شمرده می‌شود که از داخل حلقهٔ مسیر بگذرد.
+---
+
+import Formula from '../../components/educational/Formula.astro';
+import FormulaBreakdown from '../../components/educational/FormulaBreakdown.astro';
+import Callout from '../../components/educational/Callout.astro';
+
+## برادر مغناطیسیِ قانون گاوس
+
+<Formula
+  id="ampere-law"
+  latex={"\\oint \\vec{B} \\cdot d\\vec{l} = \\mu_0 I_{enc}"}
+  caption="قانون آمپر"
+/>
+
+<FormulaBreakdown
+  title="اجزای فرمول"
+  terms={[
+    { term: "\\oint", label: 'انتگرال روی مسیر بسته', detail: 'جمعِ مؤلفهٔ مماسی میدان دورِ یک حلقهٔ فرضی' },
+    { term: "I_{enc}", label: 'جریان محصور', detail: 'فقط جریان‌هایی که از داخل حلقه رد می‌شوند، با علامت قاعدهٔ دست راست' },
+    { term: "\\mu_0", label: 'تراوایی خلأ', detail: 'همان ثابت مغناطیسی همیشگی' },
+  ]}
+/>
+
+زیباترین کاربردش، سلونوئید (سیم‌لولهٔ) بلند است: داخل آن میدان یکنواخت و بیرونش تقریباً صفر:
+
+<Formula
+  id="solenoid-field"
+  latex={"B = \\mu_0 nI \\qquad n = \\frac{N}{L}"}
+  caption="میدان داخل سلونوئید بلند"
+/>
+
+<Callout type="note" title="قیاس با صفحهٔ باردار">
+  همان‌طور که صفحهٔ باردارِ بزرگ میدانی یکنواخت و مستقل از فاصله می‌ساخت، سلونوئیدِ بلند هم میدانی یکنواخت و مستقل از موقعیت داخل می‌سازد. هر دو از «گستردگیِ چشمه» می‌آیند.
+</Callout>

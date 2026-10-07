@@ -5,6 +5,14 @@ import StepReveal from './common/StepReveal';
 import ProgressToggle from './common/ProgressToggle';
 import CommandPalette from './common/CommandPalette';
 import ParamLab, { Slider, Toggle, Tabs, Reveal, LiveReadout, FunctionPlot } from './common/Controls';
+import CoulombLab from './course/CoulombLab';
+import VectorTrainer from './course/VectorTrainer';
+import RightHandTrainer from './course/RightHandTrainer';
+import ChargedParticleLab from './course/ChargedParticleLab';
+import CircuitBuilder from './course/CircuitBuilder';
+import RCSandbox from './course/RCSandbox';
+import GaussTrainer from './course/GaussTrainer';
+import CapacitorLab from './course/CapacitorLab';
 
 /**
  * React island registry.
@@ -51,9 +59,22 @@ const commonIslands: IslandMeta[] = [
 ];
 
 // Course-specific islands are appended by the course repository.
-// They are intentionally empty in the template.
+// Physics II interactive laboratories: each one earns its place with real
+// state and real calculation (Coulomb force, vector sums, cross products,
+// cyclotron orbits, equivalent R/C, RC transients, Gauss-law fields).
 
-export const islands: IslandMeta[] = [...commonIslands];
+const courseIslands: IslandMeta[] = [
+  { name: 'CoulombLab', reason: 'charge/distance state + force calculation', component: CoulombLab as ComponentType<never> },
+  { name: 'VectorTrainer', reason: 'vector parameter state + resultant', component: VectorTrainer as ComponentType<never> },
+  { name: 'RightHandTrainer', reason: 'axis selection + cross-product direction', component: RightHandTrainer as ComponentType<never> },
+  { name: 'ChargedParticleLab', reason: 'particle/field state + orbit calculation', component: ChargedParticleLab as ComponentType<never> },
+  { name: 'CircuitBuilder', reason: 'resistor/topology state + equivalent circuit', component: CircuitBuilder as ComponentType<never> },
+  { name: 'RCSandbox', reason: 'time-parameter state + transient plot', component: RCSandbox as ComponentType<never> },
+  { name: 'GaussTrainer', reason: 'symmetry/charge state + Gauss-law field', component: GaussTrainer as ComponentType<never> },
+  { name: 'CapacitorLab', reason: 'geometry/dielectric state + capacitance', component: CapacitorLab as ComponentType<never> },
+];
+
+export const islands: IslandMeta[] = [...commonIslands, ...courseIslands];
 
 export function getIsland(name: string): IslandMeta | undefined {
   return islands.find((island) => island.name === name);

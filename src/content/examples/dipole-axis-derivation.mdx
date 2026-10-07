@@ -1,0 +1,43 @@
+---
+type: example
+title: استخراج میدان روی محور دوقطبی
+description: "استخراج گام‌به‌گام میدان دوقطبی روی محور از تفاضل دو میدان تک‌بار تا رسیدن به تقریب عکس مکعب."
+section: charge-field
+difficulty: advanced
+order: 5
+estimatedMinutes: 12
+problem: "میدان دوقطبی با بارهای q و q- به فاصلهٔ d را روی محور آن در فاصلهٔ r از مرکز با فرض d خیلی کوچک‌تر از r حساب کنید."
+formula: dipole-axis-field
+tags: [دوقطبی, تقریب]
+---
+
+import WorkedExample from '../../components/educational/WorkedExample.astro';
+import Callout from '../../components/educational/Callout.astro';
+
+<WorkedExample
+  id="example-dipole-axis-derivation"
+  title="از دو تک‌بار تا فرمول دوقطبی"
+  problem="دوقطبی با بارهای ‎+q‏ و ‎−q‏ به فاصلهٔ d را در نظر بگیرید. میدان روی محور و در فاصلهٔ r از مرکز (با فرض d ≪ r) را استخراج کنید."
+  difficulty="advanced"
+  steps={[
+    {
+      title: 'گام ۱ — میدان هر بار جدا',
+      content: 'نقطه به بار نزدیک‌تر فاصلهٔ r − d/۲ و به بار دورتر فاصلهٔ r + d/۲ دارد. میدان کل تفاضل این دو است.',
+      latex: 'E = \\frac{kq}{(r-d/2)^2} - \\frac{kq}{(r+d/2)^2}'
+    },
+    {
+      title: 'گام ۲ — مخرج مشترک',
+      content: 'با یکسان‌سازی مخرج‌ها، صورت به ۲rd می‌رسد.',
+      latex: 'E = kq\\frac{2rd}{(r^2-d^2/4)^2}'
+    },
+    {
+      title: 'گام ۳ — اعمال تقریب دور',
+      content: 'چون d در برابر r ناچیز است، جملهٔ d² در مخرج حذف می‌شود.',
+      latex: 'E \\simeq \\frac{2kqrd}{r^4} = \\frac{2kqd}{r^3} = \\frac{p}{2\\pi\\varepsilon_0r^3}'
+    },
+  ]}
+/>
+
+<Callout type="note" title="تمرینِ بازِ جزوه">
+  جزوه همین استخراج را برای نقطه‌ای روی عمودمنصف دوقطبی هم خواسته ولی حل نکرده است. با همین روش — جمع برداری دو میدان و حذف مؤلفه‌های متقارن — جواب نصفِ مقدار محوری و در خلاف جهت دوقطبی می‌شود.
+</Callout>

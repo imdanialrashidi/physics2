@@ -1,0 +1,56 @@
+---
+type: formula
+title: میدان بار نقطه‌ای
+name: "میدان الکتریکی بار نقطه‌ای"
+description: "تعریف میدان با بار آزمایشی و میدان ناشی از یک بار نقطه‌ای: اندازه، جهت شعاعی و واحد نیوتن بر کولن."
+section: charge-field
+difficulty: beginner
+order: 3
+estimatedMinutes: 7
+prerequisites: [electric-charge, coulomb-law]
+tags: [میدان, بار نقطه‌ای]
+latex: "E = \\frac{kq}{r^2}"
+units: "نیوتن بر کولن (N/C)"
+conditions:
+  - جهت میدان، جهت نیروی وارد بر بار آزمایشی مثبت است.
+  - برای بار مثبت رو به بیرون و برای بار منفی رو به داخل است.
+---
+
+import Formula from '../../components/educational/Formula.astro';
+import FormulaBreakdown from '../../components/educational/FormulaBreakdown.astro';
+import Callout from '../../components/educational/Callout.astro';
+
+## از نیرو به میدان
+
+به‌جای اینکه هر بار بپرسیم «به این بارِ خاص چه نیرویی وارد می‌شود؟»، می‌پرسیم «فضای اطراف بارِ من چه خاصیتی دارد؟». جواب، میدان است.
+
+تعریف میدان با یک بار آزمایشی کوچک و مثبت <Formula inline latex={"q_0"} />:
+
+<Formula
+  id="field-definition"
+  latex={"\\vec{E} = \\frac{\\vec{F}}{q_0}"}
+  caption="تعریف میدان الکتریکی"
+/>
+
+حالا اگر میدانِ خودِ بار نقطه‌ای <Formula inline latex={"q"} /> را بخواهیم، نیروی کولنی را در تعریف می‌گذاریم و <Formula inline latex={"q_0"} /> ساده می‌شود:
+
+<Formula
+  id="point-charge-field"
+  latex={"E = \\frac{kq}{r^2}"}
+  caption="اندازهٔ میدان بار نقطه‌ای در فاصلهٔ r"
+/>
+
+<FormulaBreakdown
+  title="اجزای فرمول"
+  terms={[
+    { term: "E", label: 'اندازهٔ میدان', detail: 'بر حسب نیوتن بر کولن' },
+    { term: "q", label: 'بار چشمه', detail: 'بدون قدرمطلق؛ علامتش جهت را هم می‌گوید' },
+    { term: "r", label: 'فاصله از بار', detail: 'بر حسب متر؛ مثل کولن مربع می‌شود' },
+  ]}
+/>
+
+جهت را با یک جمله حفظ کن: **میدان، راهی است که یک بار مثبتِ تنها می‌رود** — از بار مثبت دور می‌شود و به بار منفی نزدیک.
+
+<Callout type="tip" title="تفاوت نیرو و میدان">
+  نیرو به هر دو بار وابسته است (هم چشمه، هم مهمان) ولی میدان فقط خاصیتِ چشمه است. اگر بار مهمان را برداری، نیرو صفر می‌شود ولی میدان سر جایش می‌ماند.
+</Callout>

@@ -1,0 +1,11 @@
+---
+/**
+ * PhysicsCoulombLab — Astro wrapper that hydrates the CoulombLab course island.
+ *
+ * Content authors write `<PhysicsCoulombLab />` in MDX and get a working lab; the
+ * settled figure is already in the static HTML so no-JS readers see it too.
+ */
+import CoulombLab from '../../islands/course/CoulombLab';
+---
+
+<CoulombLab client:visible />

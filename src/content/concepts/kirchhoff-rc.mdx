@@ -1,0 +1,28 @@
+---
+type: concept
+title: مدار RC و ثابت زمانی
+short: مدار مقاومت و خازن که با آهنگ نمایی شارژ و تخلیه می‌شود.
+description: "مدار RC: رفتار شارژ و تخلیهٔ نمایی، معنای ثابت زمانی و قاعدهٔ پنج‌تاو برای رسیدن به حالت نهایی."
+section: circuits
+difficulty: intermediate
+order: 2
+estimatedMinutes: 7
+prerequisites: [electric-current, capacitor]
+tags: [مدار RC, نمایی]
+formulas: [rc-charging]
+---
+
+import Definition from '../../components/educational/Definition.astro';
+import Callout from '../../components/educational/Callout.astro';
+
+## خازنی که عجله ندارد
+
+<Definition term="مدار RC" id="rc-def">
+  ترکیب یک مقاومت و یک خازن که شارژ و تخلیه‌اش نمایی است و سرعتش را ثابت زمانی <Formula inline latex={"\\tau = RC"} /> تعیین می‌کند.
+</Definition>
+
+چرا نمایی؟ چون هرچه خازن پرتر می‌شود، ولتاژِ مخالفش بیشتر و جریانِ شارژ کمتر می‌شود — خودِ فرایند، ترمزِ خودش است. همین خودترمزی، منحنی نمایی می‌سازد.
+
+<Callout type="tip" title="قاعدهٔ پنج‌تاو">
+  بعد از <Formula inline latex={"5\\tau"} /> مدار عملاً تمام‌شده است (بیش از ۹۹٪). اگر سؤالی پرسید «کی خازن کامل شارژ می‌شود؟»، جواب مهندسی‌اش همین است.
+</Callout>

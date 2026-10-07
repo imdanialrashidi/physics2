@@ -1,0 +1,52 @@
+---
+type: formula
+title: حرکت دایره‌ای در میدان مغناطیسی
+name: "شعاع و دورهٔ سیکلوترونی"
+description: "حرکت دایره‌ای بار عمود بر میدان یکنواخت: شعاع مسیر، دورهٔ تناوب و فرکانس زاویه‌ای مستقل از سرعت."
+section: magnetism
+difficulty: intermediate
+order: 2
+estimatedMinutes: 8
+prerequisites: [magnetic-force-charge]
+tags: [سیکلوترون, حرکت دایره‌ای]
+latex: "r = \\frac{mv}{qB}"
+units: "متر (m) و ثانیه (s)"
+conditions:
+  - سرعت بر میدان عمود است.
+  - میدان یکنواخت و سرعت نانسبیتی فرض می‌شود.
+---
+
+import Formula from '../../components/educational/Formula.astro';
+import FormulaBreakdown from '../../components/educational/FormulaBreakdown.astro';
+import Callout from '../../components/educational/Callout.astro';
+
+## نیروی مغناطیسی، نقش نخِ دورِ سنگ را دارد
+
+وقتی سرعت بر میدان عمود است، نیروی <Formula inline latex={"qvB"} /> همیشه به سمت مرکز خم می‌شود و ذره روی دایره می‌افتد. با مساوی گذاشتنش با نیروی مرکزگرا:
+
+<Formula
+  id="cyclotron-radius"
+  latex={"r = \\frac{mv}{qB}"}
+  caption="شعاع مسیر دایره‌ای بار در میدان یکنواخت"
+/>
+
+دورهٔ یک دور کامل:
+
+<Formula
+  id="cyclotron-period"
+  latex={"T = \\frac{2\\pi m}{qB} \\qquad \\omega = \\frac{qB}{m}"}
+  caption="دورهٔ تناوب و فرکانس زاویه‌ای سیکلوترونی"
+/>
+
+<FormulaBreakdown
+  title="اجزای فرمول"
+  terms={[
+    { term: "m", label: 'جرم ذره', detail: 'سنگین‌تر یعنی دایرهٔ بزرگ‌تر و چرخش کندتر' },
+    { term: "v", label: 'سرعت', detail: 'تندتر یعنی دایرهٔ بزرگ‌تر، ولی دوره عوض نمی‌شود' },
+    { term: "qB", label: 'بار در میدان', detail: 'عاملِ خم‌کننده؛ بزرگ‌تر یعنی دایرهٔ تنگ‌تر' },
+  ]}
+/>
+
+<Callout type="note" title="استقلال دوره از سرعت">
+  ذرهٔ تندتر دایرهٔ بزرگ‌تری می‌زند ولی دقیقاً به همان نسبت هم تندتر می‌رود؛ پس زمانِ یک دور برای همهٔ سرعت‌ها یکی است. همین ویژگی، قلبِ کارِ سیکلوترون (شتاب‌دهندهٔ ذرات) است.
+</Callout>

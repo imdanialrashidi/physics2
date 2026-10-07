@@ -1,0 +1,50 @@
+---
+type: formula
+title: میدان کرهٔ باردار یکنواخت
+name: "میدان داخل و خارج کرهٔ باردار"
+description: "میدان کرهٔ باردار یکنواخت: بیرون مثل بار نقطه‌ای در مرکز و داخل متناسب با فاصله از مرکز."
+section: gauss
+difficulty: intermediate
+order: 4
+estimatedMinutes: 7
+prerequisites: [gauss-law]
+tags: [کره, گاوس]
+latex: "E = \\frac{kQ}{r^2} \\; (r>R)"
+units: "نیوتن بر کولن (N/C)"
+conditions:
+  - بار به‌صورت یکنواخت در حجم کره پخش شده است.
+  - رابطهٔ اول بیرون و رابطهٔ دوم داخل کره معتبر است.
+---
+
+import Formula from '../../components/educational/Formula.astro';
+import Callout from '../../components/educational/Callout.astro';
+
+## بیرون: انگار همهٔ بار در مرکز است
+
+<Formula
+  id="charged-sphere-outside"
+  latex={"E = \\frac{kQ}{r^2} \\qquad (r > R)"}
+  caption="میدان خارج کرهٔ باردار یکنواخت"
+/>
+
+## داخل: فقط بارِ زیرِ پایت شمرده می‌شود
+
+در فاصلهٔ <Formula inline latex={"r"} /> از مرکز، فقط کسری از بار داخل سطح گاوسی است:
+
+<Formula
+  id="enclosed-charge-sphere"
+  latex={"q_{in} = Q\\frac{r^3}{R^3} \\qquad (r < R)"}
+  caption="بار محصور در کره‌ای به شعاع r"
+/>
+
+و میدان داخل:
+
+<Formula
+  id="charged-sphere-inside"
+  latex={"E = \\frac{kQr}{R^3} \\qquad (r < R)"}
+  caption="میدان داخل کرهٔ باردار یکنواخت؛ خطی با فاصله از مرکز"
+/>
+
+<Callout type="tip" title="تصویر ذهنی">
+  از مرکز که بیرون می‌آیی، میدان خطی رشد می‌کند تا به سطح برسی؛ بعد از سطح، مثل تک‌بار با مربع فاصله می‌افتد. روی سطح، هر دو فرمول یک عدد می‌دهند — پیوستگی، نشانهٔ درستی است.
+</Callout>

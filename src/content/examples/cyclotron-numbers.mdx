@@ -1,0 +1,33 @@
+---
+type: example
+title: پروتون در میدان مغناطیسی
+description: "مثال عددی حرکت دایره‌ای بار در میدان: شعاع مسیر و دورهٔ چرخش پروتون با سرعت مشخص."
+section: magnetism
+difficulty: intermediate
+order: 1
+estimatedMinutes: 9
+problem: "پروتونی با سرعت ۲ میلیون متر بر ثانیه عمود بر میدان یکنواخت ۰.۵ تسلا وارد می‌شود. شعاع مسیر و دورهٔ چرخش را حساب کنید."
+formula: cyclotron-radius
+tags: [سیکلوترون, مغناطیس]
+---
+
+import WorkedExample from '../../components/educational/WorkedExample.astro';
+
+<WorkedExample
+  id="example-cyclotron-numbers"
+  title="شعاع و دورهٔ پروتون"
+  problem="پروتون (q = ۱.۶×۱۰⁻¹⁹C ،m = ۱.۶۷×۱۰⁻²⁷kg) با سرعت v = ۲×۱۰⁶m/s عمود بر میدان یکنواخت B = ۰.۵T وارد می‌شود. شعاع مسیر و دورهٔ یک دور را حساب کنید."
+  difficulty="intermediate"
+  steps={[
+    {
+      title: 'گام ۱ — شعاع مسیر',
+      content: 'نیروی مغناطیسی نقش مرکزگرا را دارد.',
+      latex: 'r = \\frac{1.67\\times10^{-27}\\times2\\times10^6}{1.6\\times10^{-19}\\times0.5} \\simeq 4.2\\,\\text{cm}'
+    },
+    {
+      title: 'گام ۲ — دورهٔ چرخش',
+      content: 'دوره فقط به جرم، بار و میدان بستگی دارد نه سرعت.',
+      latex: 'T = \\frac{2\\pi\\times1.67\\times10^{-27}}{1.6\\times10^{-19}\\times0.5} \\simeq 1.3\\times10^{-7}\\,\\text{s}'
+    },
+  ]}
+/>

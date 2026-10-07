@@ -76,7 +76,7 @@ describeIfBuilt('built output', () => {
   });
 
   it('renders KaTeX markup rather than shipping a KaTeX runtime', () => {
-    const html = readFileSync(path.join(distDir, 'lessons/01-intro-to-calculus/index.html'), 'utf8');
+    const html = readFileSync(path.join(distDir, 'lessons/charge-and-electric-field/index.html'), 'utf8');
     expect(html).toContain('class="katex');
     expect(html).toContain('mfrac');
   });

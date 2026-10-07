@@ -1,0 +1,42 @@
+---
+type: example
+title: شرط صفر شدن نیرو روی مربع
+description: "چهار بار روی رأس‌های مربع: با تقارن و تجزیهٔ نیرو، نسبت باری که نیروی خالص را صفر می‌کند به دست می‌آید."
+section: charge-field
+difficulty: advanced
+order: 2
+estimatedMinutes: 10
+problem: "روی سه رأس مربعی به ضلع a بارهای Q و q و q و روی رأس چهارم ۲Q- است. نسبت q به Q را طوری پیدا کنید که نیروی خالص وارد بر Q صفر شود."
+formula: coulomb-law
+tags: [کولن, تقارن, مربع]
+---
+
+import WorkedExample from '../../components/educational/WorkedExample.astro';
+
+<WorkedExample
+  id="example-square-zero-force"
+  title="صفر شدن نیرو با تقارن مربع"
+  problem="بارهای q₁ = ‎+Q‏، q₂ = q₃ = q و q₄ = ‎−۲Q‏ روی رأس‌های یک مربع‌اند. نسبت q/Q را چنان بیابید که نیروی خالص وارد بر q₁ صفر شود."
+  difficulty="advanced"
+  steps={[
+    {
+      title: 'گام ۱ — شرط صفر شدن',
+      content: 'برای نیروی خالص صفر، هر دو مؤلفهٔ x و y باید صفر شوند. از تقارن مربع، دو بار مجاور سهم یکسان دارند.'
+    },
+    {
+      title: 'گام ۲ — موازنه روی قطر',
+      content: 'مؤلفهٔ نیروی قطری در راستای ضلع باید با نیروی ضلع مجاور برابر شود.',
+      latex: 'F_{41}\\cos45^\\circ = F_{21}'
+    },
+    {
+      title: 'گام ۳ — جایگذاری فاصله‌ها',
+      content: 'فاصلهٔ قطری a√۲ است پس مربعش ۲a² می‌شود.',
+      latex: '\\frac{kQ(2Q)}{2a^2}\\times\\frac{\\sqrt2}{2} = \\frac{kQq}{a^2}'
+    },
+    {
+      title: 'گام ۴ — نسبت نهایی',
+      content: 'با ساده‌سازی k و Q و a، فقط نسبت بارها می‌ماند.',
+      latex: '\\frac{q}{Q} = \\frac{\\sqrt2}{2}'
+    },
+  ]}
+/>

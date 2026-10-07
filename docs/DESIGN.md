@@ -15,6 +15,13 @@ everything else is **[proposed]** and may be revised without owner sign-off.
 - **Header brand [owner, 2026-10-06]:** no monogram, no creator name as the logo. The header mark is
   a book SVG; the wordmark is the course title (with «درس‌نامهٔ آزاد» as the quiet second line).
   Creator identity stays in the footer, homepage creator block, and about page — not in the header lockup.
+- **Physics II header [owner, 2026-10-07]:** the header mark is an atom/orbit motif (three 60°-rotated
+  ellipses + nucleus, same 20px grid / 1.5px stroke language) instead of the book; the wordmark is
+  «فیزیک ۲» alone (via `headerTitle`), keeping «درس‌نامهٔ آزاد» as the quiet second line.
+  Both are course configuration (`headerMark`, `headerTitle` in `src/config/course.ts`, defaulting to
+  book + full title) so the engine never branches on a discipline.
+- **Physics II palette [owner direction, 2026-10-07]:** a better, more laboratory palette for this course —
+  vivid indigo primary with the amber accent. Exact hexes are **[proposed]** and measured below.
 - **Exact brand colors and intended roles:** none supplied. Palette below is **[proposed]** and derived
   from the product's own world (Persian scientific manuscripts and illuminated geometry), not from a
   trend reference. A course may override only `--color-primary` / `--color-accent` via course config.
@@ -102,6 +109,8 @@ Code source: `src/styles/theme.css`. Contrast measured with the WCAG 2.2 relativ
 | action | light | `#0E7C7B` | `#FFFFFF` on it | **5.01:1** PASS |
 | action-deep (hover) | light | `#0A5C5B` | `#FFFFFF` on it | **7.79:1** PASS |
 | accent (formula, current marker) | light | `#9A5B00` | on canvas `#FAF7F0` | **5.07:1** PASS |
+| action (Physics II override) | light | `#4F46E5` | `#FFFFFF` on it | **6.29:1** PASS |
+| primary-deep (Physics II override) | light | `#4338CA` | on canvas `#FAF7F0` | **7.41:1** PASS |
 | border (hairline) | light | `#E4DCCD` | decorative divider only | n/a (not a control) |
 | border-control | light | `#7D7362` | on canvas / surface | **4.36 / 4.67** PASS (≥3:1 required) |
 | focus | light | `#0E7C7B` | on canvas `#FAF7F0` | **4.69:1** PASS |
@@ -261,3 +270,7 @@ says so rather than crashing).
 | 2026-10-05 | Separate `--color-border-control` from decorative `--color-border` | Measured: `#D8D0C0` fails 3:1 for controls, `#7D7362` passes at 4.36:1 | If a course overrides borders |
 | 2026-10-06 | Template slice: no new visual system **[owner direction preserved]**; new surfaces reuse existing tokens | Brief requires the illuminated-worksheet identity to stay fixed; palette/thesis/type/motion unchanged | If a real course needs a motif beyond the accent override |
 | 2026-10-06 | Command palette as a quiet floating dialog; TOC as dot-leader-consistent rail + mobile disclosure; formula copy as a ghost button **[proposed]** | Must not introduce glassmorphism, badges, or cards that the brief rejects; appendix surfaces (map, palette) inherit paper/surface/hairline roles | If palette usage shows the dialog needs grouping or sections |
+| 2026-10-07 | Physics II course selects the shared `physics` preset (deep blue primary, amber accent) via `themePreset` in `src/config/course.ts` **[proposed; no owner palette supplied]** | Per-course theming only through the documented preset/override mechanism; no token, palette, thesis, or stylesheet fork (see quality invariants 14–15) | If a future course needs a motif beyond the accent override |
+| 2026-10-07 | Homepage hero plate is subject-neutral illuminated geometry, not the calculus tangent figure **[proposed]** | First non-calculus course exposed calculus-specific teaching content baked into the shared homepage; neutral plate keeps the engine discipline-free for every course | If a course needs its own hero figure, add a config-driven slot rather than hard-coding it |
+| 2026-10-07 | Physics II header (atom mark + «فیزیک ۲» wordmark) and indigo/amber palette **[owner direction; hexes proposed]** | Owner asked for a physics mark, a bare «فیزیک ۲» header name, and a better course palette; implemented as neutral config knobs (`headerMark`, `headerTitle`, `theme.colors`) with measured contrast | If another course wants its own mark, add a motif name — never branch on discipline |
+| 2026-10-07 | Known limitation, not fixed here **[proposed]**: the single-hex course override also applies in dark mode, where filled-button text stays near-black (e.g. `#08201F` on `#4F46E5` ≈ 2.7:1) | Discovered while measuring the Physics II palette; fixing it needs per-theme course roles in the theming engine, which is shared-infrastructure work beyond one course | When the engine gains per-theme course roles, re-measure the dark filled-button pair |

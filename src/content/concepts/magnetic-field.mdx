@@ -1,0 +1,43 @@
+---
+type: concept
+title: میدان مغناطیسی و جریان
+short: میدان مغناطیسی بر بار متحرک و سیم حامل جریان نیرو وارد می‌کند.
+description: "میدان مغناطیسی: نیروی بر سیم حامل جریان، گشتاور حلقهٔ جریان‌دار و گشتاور مغناطیسی."
+section: magnetism
+difficulty: beginner
+order: 1
+estimatedMinutes: 8
+prerequisites: [electric-current]
+tags: [مغناطیس, سیم, گشتاور]
+formulas: [magnetic-force-charge, straight-wire-field, ampere-law]
+---
+
+import Formula from '../../components/educational/Formula.astro';
+import Definition from '../../components/educational/Definition.astro';
+import Callout from '../../components/educational/Callout.astro';
+
+## از ذره به سیم
+
+<Definition term="میدان مغناطیسی" id="bfield-def" alt="Magnetic field">
+  ناحیه‌ای از فضا که بر بارهای متحرک و جریان‌ها نیرو وارد می‌کند؛ با <Formula inline latex={"\\vec{B}"} /> و بر حسب تسلا.
+</Definition>
+
+سیمی به طول <Formula inline latex={"L"} /> با جریان <Formula inline latex={"I"} /> در میدان، نیرویی می‌گیرد که جمعِ نیروی همهٔ الکترون‌هایش است:
+
+<Formula
+  id="wire-force"
+  latex={"\\vec{F} = I\\vec{L} \\times \\vec{B} \\qquad F = ILB\\sin\\theta"}
+  caption="نیروی مغناطیسی وارد بر سیم حامل جریان"
+/>
+
+حلقهٔ جریان‌دار در میدان می‌چرخد (اساس کار موتور الکتریکی):
+
+<Formula
+  id="loop-torque"
+  latex={"\\tau = NIAB\\sin\\theta = \\mu B\\sin\\theta \\qquad \\mu = NIA"}
+  caption="گشتاور روی حلقهٔ جریان‌دار و گشتاور مغناطیسی"
+/>
+
+<Callout type="note" title="مارپیچ، ترکیب دو حرکت">
+  اگر سرعت ذره هم مؤلفهٔ عمود داشته باشد هم موازی، مؤلفهٔ عمود دایره می‌سازد و مؤلفهٔ موازی جلو می‌رود؛ ترکیبشان مسیر مارپیچ (فنری) است.
+</Callout>

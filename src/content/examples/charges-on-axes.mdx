@@ -1,0 +1,53 @@
+---
+type: example
+title: بارهای روی محورهای مختصات
+description: "دو بار ثابت روی محور x و یک بار متحرک روی محور y: یافتن بار مجهول برای شتاب خالص در راستای خواسته‌شده."
+section: charge-field
+difficulty: advanced
+order: 3
+estimatedMinutes: 12
+problem: "بار ۴۰ میکروکولن در x منفی ۲ سانتی‌متر و بار مجهول Q در x برابر ۳ سانتی‌متر ثابت‌اند. بار ۲۰ میکروکولن در y برابر ۲ سانتی‌متر رها می‌شود. Q را برای شتاب خالص در جهت‌های خواسته‌شده بیابید."
+formula: coulomb-law
+tags: [کولن, محور مختصات]
+---
+
+import WorkedExample from '../../components/educational/WorkedExample.astro';
+import Callout from '../../components/educational/Callout.astro';
+
+<WorkedExample
+  id="example-charges-on-axes"
+  title="تنظیم بار برای جهت شتاب دلخواه"
+  problem="q₁ = ۴۰μC در x = ‎−۲cm‏ و بار مجهول Q در x = ‎+۳cm‏ ثابت‌اند. q₃ = ۲۰μC در y = ‎+۲cm‏ از سکون رها می‌شود. (الف) Q چقدر باشد تا شتاب اولیه در جهت ‎+x‏ باشد؟ (ب) برای جهت ‎+y‏ چطور؟"
+  difficulty="advanced"
+  steps={[
+    {
+      title: 'گام ۱ — هندسهٔ مسئله',
+      content: 'فاصلهٔ بار سوم از دو بار ثابت و کسینوس‌های لازم از فیثاغورس به دست می‌آیند.',
+      latex: 'r_{13} = 2\\sqrt2\\,\\text{cm} \\qquad r_{23} = \\sqrt{13}\\,\\text{cm}'
+    },
+    {
+      title: 'گام ۲ — حالت الف: خنثی شدن مؤلفهٔ y',
+      content: 'برای شتاب خالص در راستای x، مؤلفه‌های y دو نیرو باید همدیگر را حذف کنند.',
+      latex: 'F_{13}\\cos\\theta = F_{23}\\cos\\varphi \\qquad \\cos\\theta = \\frac{\\sqrt2}{2},\\; \\cos\\varphi = \\frac{2}{\\sqrt{13}}'
+    },
+    {
+      title: 'گام ۳ — جواب حالت الف',
+      content: 'با جایگذاری قانون کولن برای هر دو نیرو، بار مجهول منفی به دست می‌آید.',
+      latex: 'Q \\simeq -82.86\\,\\mu\\text{C}'
+    },
+    {
+      title: 'گام ۴ — حالت ب: خنثی شدن مؤلفهٔ x',
+      content: 'این‌بار مؤلفه‌های افقی حذف می‌شوند و سینوس‌ها وارد بازی می‌شوند.',
+      latex: 'F_{13}\\sin\\theta = F_{23}\\sin\\varphi \\qquad \\sin\\theta = \\frac{\\sqrt2}{2},\\; \\sin\\varphi = \\frac{3}{\\sqrt{13}}'
+    },
+    {
+      title: 'گام ۵ — جواب حالت ب',
+      content: 'جهت نیروی لازم عوض می‌شود پس علامت بار هم عوض می‌شود.',
+      latex: 'Q \\simeq +55.2\\,\\mu\\text{C}'
+    },
+  ]}
+/>
+
+<Callout type="tip" title="درس این مثال">
+  «صفر شدن یک مؤلفه» یعنی مساوی گذاشتن اندازهٔ دو مؤلفهٔ مخالف. اول با شکل بفهم کدام مؤلفه باید حذف شود، بعد معادله بنویس.
+</Callout>

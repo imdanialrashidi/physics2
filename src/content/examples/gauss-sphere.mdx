@@ -1,0 +1,38 @@
+---
+type: example
+title: میدان کرهٔ باردار با عدد
+description: "مثال عددی قانون گاوس: میدان داخل و خارج یک کرهٔ باردار یکنواخت با شعاع و بار مشخص."
+section: gauss
+difficulty: intermediate
+order: 1
+estimatedMinutes: 9
+problem: "کره‌ای به شعاع ۱۰ سانتی‌متر بار ۵ میکروکولن را یکنواخت در حجمش دارد. میدان را در ۵ سانتی‌متری و ۲۰ سانتی‌متری مرکز حساب کنید."
+formula: charged-sphere-field
+tags: [گاوس, کره]
+---
+
+import WorkedExample from '../../components/educational/WorkedExample.astro';
+
+<WorkedExample
+  id="example-gauss-sphere"
+  title="داخل و خارج کرهٔ باردار"
+  problem="کره‌ای به شعاع R = ۱۰cm بار Q = ۵μC را یکنواخت در حجم خود دارد. میدان را در r = ۵cm و r = ۲۰cm از مرکز حساب کنید."
+  difficulty="intermediate"
+  steps={[
+    {
+      title: 'گام ۱ — نقطهٔ بیرونی مثل تک‌بار',
+      content: 'چون r > R است، کل بار مثل یک نقطه در مرکز رفتار می‌کند.',
+      latex: 'E = \\frac{9\\times10^9 \\times 5\\times10^{-6}}{(0.2)^2} \\simeq 1.1\\times10^6\\,\\text{N/C}'
+    },
+    {
+      title: 'گام ۲ — بار محصور برای نقطهٔ درونی',
+      content: 'در r = ۵cm فقط کسری از بار داخل سطح گاوسی است.',
+      latex: 'q_{in} = 5\\mu\\text{C}\\times(5/10)^3 = 0.625\\,\\mu\\text{C}'
+    },
+    {
+      title: 'گام ۳ — میدان درونی',
+      content: 'با فرمول خطی داخل کره، میدان خیلی کوچک‌تر از سطح است.',
+      latex: 'E = \\frac{9\\times10^9 \\times 0.625\\times10^{-6}}{(0.05)^2} \\simeq 2.25\\times10^6\\,\\text{N/C}'
+    },
+  ]}
+/>

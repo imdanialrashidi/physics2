@@ -1,0 +1,34 @@
+---
+type: formula
+title: توان الکتریکی
+name: "توان الکتریکی در سه فرم"
+description: "توان مصرفی قطعه‌های الکتریکی: حاصل‌ضرب ولتاژ در جریان و دو فرم معادل با قانون اهم."
+section: circuits
+difficulty: beginner
+order: 2
+estimatedMinutes: 5
+prerequisites: [ohm-law]
+tags: [توان, مدار]
+latex: "P = VI = I^2R = \\frac{V^2}{R}"
+units: "وات (W)"
+conditions:
+  - برای قطعه‌ای با ولتاژ و جریان مشخص درست است.
+  - فرم‌های مقاومتی برای بارهای اهمی به کار می‌روند.
+---
+
+import Formula from '../../components/educational/Formula.astro';
+import Callout from '../../components/educational/Callout.astro';
+
+## انرژیِ هر ثانیه
+
+توان یعنی «در هر ثانیه چقدر انرژی الکتریکی جابه‌جا یا تلف می‌شود»:
+
+<Formula
+  id="electric-power"
+  latex={"P = VI = I^2R = \\frac{V^2}{R}"}
+  caption="توان الکتریکی در سه فرم معادل"
+/>
+
+<Callout type="tip" title="کدام فرم؟">
+  جریانِ مدار را می‌دانی؟ <Formula inline latex={"I^2R"} />. ولتاژِ دو سر مقاومت را می‌دانی؟ <Formula inline latex={"V^2/R"} />. همین انتخاب درست، نصف مسئله‌های توان را حل می‌کند.
+</Callout>

@@ -9,6 +9,7 @@
 import CourseLayout from '../layouts/CourseLayout.astro';
 import Icon from '../components/ui/Icon.astro';
 import { getSectionGroups } from '../lib/content';
+import { courseConfig } from '../config/course';
 import { absoluteUrl } from '../config/site';
 import { toPersianDigits, toPersianNumeral, formatMinutes } from '../lib/utils';
 import { withBase } from '../lib/url';
@@ -38,7 +39,7 @@ const mapJsonLd = {
 
 <CourseLayout
   title="نقشهٔ دوره"
-  description="نقشهٔ کامل دورهٔ حساب دیفرانسیل: همهٔ بخش‌ها و مطالب به‌ترتیب خواندن با زمان تقریبی مطالعه. از کجا شروع کنید و بعد چه بخوانید."
+  description={`نقشهٔ کامل ${courseConfig.title}: همهٔ بخش‌ها و مطالب به‌ترتیب خواندن با زمان تقریبی مطالعه. از کجا شروع کنید و بعد چه بخوانید.`}
   sections={sections}
   jsonLd={[mapJsonLd]}
 >

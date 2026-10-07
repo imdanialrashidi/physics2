@@ -1,0 +1,48 @@
+---
+type: example
+title: سه بار روی مثلث متساوی‌الاضلاع
+description: "نیروی خالص وارد بر یک بار از دو بار دیگر روی رأس‌های مثلث متساوی‌الاضلاع: تجزیه به مؤلفه‌ها و جمع برداری گام‌به‌گام."
+section: charge-field
+difficulty: intermediate
+order: 1
+estimatedMinutes: 12
+problem: "سه بار ۱ و ۲- و ۲- میکروکولن روی رأس‌های مثلث متساوی‌الاضلاعی به ضلع ۱۰ سانتی‌متر‌اند. اندازه و جهت نیروی وارد بر بار ۲- میکروکولنی را پیدا کنید."
+formula: coulomb-law
+tags: [کولن, برهم‌نهی, بردار]
+---
+
+import WorkedExample from '../../components/educational/WorkedExample.astro';
+import Callout from '../../components/educational/Callout.astro';
+
+<WorkedExample
+  id="example-triangle-forces"
+  title="نیروی خالص روی یک رأس مثلث"
+  problem="سه ذره با بارهای q₁ = ۱μC و q₂ = q₃ = ۲-μC روی رأس‌های مثلث متساوی‌الاضلاعی به ضلع ۱۰ سانتی‌متر قرار دارند. نیروی خالص وارد بر ذرهٔ ۲ را حساب کنید."
+  difficulty="intermediate"
+  steps={[
+    {
+      title: 'گام ۱ — اندازهٔ دو نیرو',
+      content: 'هر نیرو را جدا با قانون کولن حساب می‌کنیم. فاصله‌ها ۰.۱ مترند.',
+      latex: 'F_{12} = \\frac{9\\times10^9 \\times 1\\times10^{-6} \\times 2\\times10^{-6}}{(0.1)^2} = 1.8\\,\\text{N}'
+    },
+    {
+      title: 'گام ۲ — نیروی دوم',
+      content: 'نیروی ناشی از بار سوم بر بار دوم هم به همین شکل به دست می‌آید.',
+      latex: 'F_{32} = \\frac{9\\times10^9 \\times 2\\times10^{-6} \\times 2\\times10^{-6}}{(0.1)^2} = 3.6\\,\\text{N}'
+    },
+    {
+      title: 'گام ۳ — تجزیه به مؤلفه‌ها',
+      content: 'با زاویهٔ ۶۰ درجهٔ مثلث، مؤلفه‌های x و y نیروی خالص را می‌سازیم.',
+      latex: 'F_x = 1.8\\cos60^\\circ - 3.6 = -2.7\\,\\text{N} \\qquad F_y = 1.8\\sin60^\\circ \\simeq 1.6\\,\\text{N}'
+    },
+    {
+      title: 'گام ۴ — اندازه و جهت',
+      content: 'اندازه از فیثاغورس و جهت از تانژانت وارون؛ با Fx منفی و Fy مثبت، بردار در ربع دوم است.',
+      latex: 'F = \\sqrt{(-2.7)^2 + 1.6^2} \\simeq 3.1\\,\\text{N}'
+    },
+  ]}
+/>
+
+<Callout type="tip" title="الگوی همهٔ مسئله‌های چندبار">
+  همیشه همین چهار گام: اندازهٔ تک‌تک نیروها، جهت هر کدام، تجزیه به مؤلفه، جمع و ترکیب نهایی. جهت را با شکل و علامت بارها پیدا کن، نه با فرمول.
+</Callout>

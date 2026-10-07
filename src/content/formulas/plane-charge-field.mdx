@@ -1,0 +1,43 @@
+---
+type: formula
+title: میدان صفحهٔ باردار بزرگ
+name: "میدان صفحهٔ باردار یکنواخت"
+description: "میدان صفحهٔ تخت و بزرگ با بار یکنواخت: مستقل از فاصله و عمود بر صفحه، به‌همراه حالت دو صفحهٔ موازی."
+section: gauss
+difficulty: beginner
+order: 2
+estimatedMinutes: 6
+prerequisites: [charge-density, gauss-law]
+tags: [صفحه, خازن]
+latex: "E = \\frac{\\sigma}{2\\epsilon_0}"
+units: "نیوتن بر کولن (N/C)"
+conditions:
+  - صفحه خیلی بزرگ‌تر از فاصلهٔ نقطه تا آن است.
+  - چگالی سطحی بار یکنواخت فرض می‌شود.
+---
+
+import Formula from '../../components/educational/Formula.astro';
+import FormulaBreakdown from '../../components/educational/FormulaBreakdown.astro';
+import Callout from '../../components/educational/Callout.astro';
+
+## میدانی که با فاصله کم نمی‌شود
+
+برای یک صفحهٔ بزرگ و یکنواخت، هرچه دورتر بروی، بارِ بیشتری در میدان دیدت قرار می‌گیرد و این دو اثر دقیقاً همدیگر را خنثی می‌کنند:
+
+<Formula
+  id="plane-charge-field"
+  latex={"E = \\frac{\\sigma}{2\\epsilon_0}"}
+  caption="میدان صفحهٔ باردار بزرگ؛ عمود بر صفحه و مستقل از فاصله"
+/>
+
+<FormulaBreakdown
+  title="اجزای فرمول"
+  terms={[
+    { term: "\\sigma", label: 'چگالی سطحی بار', detail: 'بارِ هر مترمربع از صفحه، بر حسب کولن بر مترمربع' },
+    { term: "2\\epsilon_0", label: 'دو برابر گذردهی خلأ', detail: 'عدد ۲ چون میدان به دو سمت صفحه می‌تابد' },
+  ]}
+/>
+
+<Callout type="note" title="پل به خازن">
+  اگر دو صفحهٔ موازی با بارهای مخالف روبه‌روی هم بگذاری، میدان‌هایشان بین دو صفحه هم‌جهت و جمع می‌شوند (<Formula inline latex={"E = \\sigma/\\varepsilon_0"} />) و بیرون همدیگر را حذف می‌کنند. همین، قلب خازنِ صفحات موازی است.
+</Callout>

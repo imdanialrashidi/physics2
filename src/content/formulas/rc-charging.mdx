@@ -1,0 +1,62 @@
+---
+type: formula
+title: شارژ و تخلیهٔ مدار RC
+name: "پاسخ زمانی مدار RC و ثابت زمانی"
+description: "شارژ و تخلیهٔ نمایی خازن در مدار RC: ثابت زمانی، بار و ولتاژ و جریان در هر لحظه."
+section: circuits
+difficulty: intermediate
+order: 3
+estimatedMinutes: 9
+prerequisites: [kirchhoff-rc, capacitor]
+tags: [مدار RC, ثابت زمانی]
+latex: "\\tau = RC"
+units: "ثانیه (s)"
+conditions:
+  - مدار فقط یک مقاومت و یک خازن سری دارد.
+  - منبع در حالت شارژ، ولتاژ ثابت دارد.
+---
+
+import Formula from '../../components/educational/Formula.astro';
+import FormulaBreakdown from '../../components/educational/FormulaBreakdown.astro';
+import Callout from '../../components/educational/Callout.astro';
+
+## سرعتِ پر و خالی شدن
+
+ثابت زمانی، شناسنامهٔ سرعت مدار است:
+
+<Formula
+  id="rc-time-constant"
+  latex={"\\tau = RC"}
+  caption="ثابت زمانی مدار RC"
+/>
+
+<FormulaBreakdown
+  title="خواندن τ"
+  terms={[
+    { term: "R", label: 'مقاومت', detail: 'بزرگ‌تر یعنی جریان کمتر و شارژ کندتر' },
+    { term: "C", label: 'ظرفیت', detail: 'بزرگ‌تر یعنی بارِ بیشتر برای پر شدن' },
+    { term: "\\tau", label: 'ثابت زمانی', detail: 'بعد از حدود ۵τ مدار عملاً به حالت نهایی رسیده است' },
+  ]}
+/>
+
+شارژ (اتصال به باتری <Formula inline latex={"\\varepsilon"} />):
+
+<Formula
+  id="rc-charging"
+  latex={"q(t) = C\\varepsilon(1 - e^{-t/RC}) \\qquad V_C = \\varepsilon(1 - e^{-t/RC})"}
+  caption="بار و ولتاژ خازن هنگام شارژ"
+/>
+
+تخلیه (جدا از باتری، اتصال کوتاه با مقاومت):
+
+<Formula
+  id="rc-discharging"
+  latex={"q(t) = Q_0e^{-t/RC}"}
+  caption="بار خازن هنگام تخلیه از مقدار اولیهٔ Q صفر"
+/>
+
+و جریان در هر دو حالت نمایی افت می‌کند: <Formula inline latex={"I = I_0e^{-t/RC}"} />.
+
+<Callout type="tip" title="قانون ۶۳ و ۳۷ درصد">
+  بعد از یک ثابت زمانی، شارژ به ۶۳٪ نهایی رسیده و تخلیه به ۳۷٪ مقدار اولیه افتاده است. این دو عدد، رایج‌ترین سؤالِ مفهومیِ RC هستند.
+</Callout>

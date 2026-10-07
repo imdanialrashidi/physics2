@@ -1,0 +1,34 @@
+---
+type: formula
+title: انرژی ذخیره‌شده در خازن
+name: "انرژی خازن در سه فرم"
+description: "انرژی ذخیره‌شده در خازن باردار با سه فرم معادل: بر حسب ولتاژ، بار و ولتاژ، یا فقط بار و ظرفیت."
+section: potential
+difficulty: beginner
+order: 3
+estimatedMinutes: 6
+prerequisites: [capacitor, parallel-plate-capacitor]
+tags: [خازن, انرژی]
+latex: "U = \\frac{1}{2}CV^2"
+units: "ژول (J)"
+conditions:
+  - خازن ایده‌آل و بدون نشتی فرض می‌شود.
+  - هر سه فرم با رابطهٔ Q مساوی CV به هم تبدیل می‌شوند.
+---
+
+import Formula from '../../components/educational/Formula.astro';
+import Callout from '../../components/educational/Callout.astro';
+
+## چرا یک‌دوم؟
+
+اولین ذره‌های بار تقریباً رایگان روی خازن می‌نشینند، ولی هرچه خازن پرتر می‌شود، آوردنِ بارِ بعدی سخت‌تر است چون باید بر دافعهٔ بارهای قبلی غلبه کنی. میانگینِ این سختی، نصفِ حالتِ نهایی است — از همین‌جا ضریب یک‌دوم می‌آید:
+
+<Formula
+  id="capacitor-energy"
+  latex={"U = \\frac{1}{2}CV^2 = \\frac{1}{2}QV = \\frac{Q^2}{2C}"}
+  caption="انرژی خازن در سه فرم معادل"
+/>
+
+<Callout type="tip" title="کدام فرم؟">
+  هر داده‌ای که داری همان فرم را انتخاب کن: ولتاژ داری؟ فرم اول. بار و ولتاژ داری؟ فرم دوم. فقط بار و ظرفیت داری؟ فرم سوم. هر سه یک چیزند.
+</Callout>

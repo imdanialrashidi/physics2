@@ -1,0 +1,38 @@
+---
+type: example
+title: ترکیب خازن‌های سری و موازی
+description: "مثال عددی ترکیب خازن‌ها: ظرفیت معادل، بار و انرژی یک شبکهٔ سادهٔ سری–موازی با باتری مشخص."
+section: potential
+difficulty: intermediate
+order: 1
+estimatedMinutes: 10
+problem: "خازن‌های ۲ و ۴ میکروفاراد موازی‌اند و با خازن ۳ میکروفاراد سری شده‌اند. مجموعه به باتری ۱۲ ولت وصل است. ظرفیت معادل و انرژی کل را حساب کنید."
+formula: capacitor-energy
+tags: [خازن, سری و موازی]
+---
+
+import WorkedExample from '../../components/educational/WorkedExample.astro';
+
+<WorkedExample
+  id="example-capacitor-combination"
+  title="ظرفیت معادل و انرژی یک شبکه"
+  problem="دو خازن ۲μF و ۴μF موازی‌اند و ترکیبشان با خازن ۳μF سری شده است. مجموعه به باتری ۱۲V وصل است. ظرفیت معادل، بار هر شاخه و انرژی کل را پیدا کنید."
+  difficulty="intermediate"
+  steps={[
+    {
+      title: 'گام ۱ — شاخهٔ موازی',
+      content: 'در موازی ظرفیت‌ها جمع می‌شوند.',
+      latex: 'C_p = 2 + 4 = 6\\,\\mu\\text{F}'
+    },
+    {
+      title: 'گام ۲ — سری شدن با خازن سوم',
+      content: 'در سری، معکوس‌ها جمع می‌شوند.',
+      latex: '\\frac{1}{C_{eq}} = \\frac16 + \\frac13 = \\frac12 \\;\\Rightarrow\\; C_{eq} = 2\\,\\mu\\text{F}'
+    },
+    {
+      title: 'گام ۳ — بار و انرژی کل',
+      content: 'بار کشیده‌شده از باتری و انرژی ذخیره‌شده در کل شبکه.',
+      latex: 'Q = C_{eq}V = 24\\,\\mu\\text{C} \\qquad U = \\frac12\\times2\\times12^2 = 144\\,\\mu\\text{J}'
+    },
+  ]}
+/>

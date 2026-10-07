@@ -1,0 +1,40 @@
+---
+type: concept
+title: میدان الکتریکی
+short: خاصیت برداری فضای اطراف هر بار که به بارهای دیگر نیرو وارد می‌کند.
+description: "مفهوم میدان الکتریکی: تعریف با بار آزمایشی، جهت میدان اطراف بار مثبت و منفی و اصل برهم‌نهی."
+section: charge-field
+difficulty: beginner
+order: 3
+estimatedMinutes: 7
+prerequisites: [electric-charge]
+tags: [میدان, برهم‌نهی]
+formulas: [point-charge-field, coulomb-law]
+---
+
+import Formula from '../../components/educational/Formula.astro';
+import Definition from '../../components/educational/Definition.astro';
+import Misconception from '../../components/educational/Misconception.astro';
+
+## فضا، بعد از آمدنِ بار عوض می‌شود
+
+<Definition term="میدان الکتریکی" id="field-def" alt="Electric field">
+  کمیت برداری در هر نقطه از فضا که برابر نیروی وارد بر واحدِ بارِ مثبتِ آزمایشی در آن نقطه است.
+</Definition>
+
+جهت میدان، جهتِ نیرویی است که یک بار مثبتِ تنها حس می‌کند: از بار مثبت **دور** و به بار منفی **نزدیک**.
+
+وقتی چند بار داری، میدانِ هر کدام را جدا حساب کن و برداری جمع بزن:
+
+<Formula
+  id="field-superposition"
+  latex={"\\vec{E} = \\vec{E}_1 + \\vec{E}_2 + \\vec{E}_3 + \\cdots"}
+  caption="اصل برهم‌نهی میدان‌ها"
+/>
+
+همین‌طور برای نیروها: نیروی خالصِ وارد بر هر ذره، جمع برداریِ نیروهای تک‌تکِ ذره‌های دیگر است (<Formula inline latex={"\\vec{F}_1 = \\vec{F}_{21} + \\vec{F}_{31} + \\cdots"} />).
+
+<Misconception
+  wrong="خط‌های میدان چیزهای واقعی‌اند که در فضا وجود دارند."
+  correct="خط‌های میدان فقط نقشهٔ راهنمای ذهن ما هستند؛ تراکمشان قدرت میدان و جهت‌شان جهت نیرو را نشان می‌دهد. آنچه واقعی است، خودِ میدان است نه خط‌ها."
+/>
