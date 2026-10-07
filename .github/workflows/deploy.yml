@@ -29,6 +29,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    env:
+      # A repo named "physics2" is served from /physics2/, so every asset
+      # and link Astro emits has to carry that prefix. Declared once at job
+      # level so the link check validates the same output the build produced
+      # (it previously ran without BASE_PATH and flagged every correct link
+      # as broken). SITE_URL stays the bare origin: absoluteUrl() appends
+      # BASE_PATH itself, so including the repo name here would emit
+      # /physics2/physics2/ canonical URLs.
+      BASE_PATH: ${{ vars.DEPLOY_BASE || format('/{0}', github.event.repository.name) }}
+      SITE_URL: ${{ vars.SITE_URL || format('https://{0}.github.io', github.repository_owner) }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
@@ -41,11 +51,6 @@ jobs:
         run: npm ci
 
       - name: Build static site
-        env:
-          # A repo named "physics2" is served from /physics2/, so every asset
-          # and link Astro emits has to carry that prefix.
-          BASE_PATH: ${{ vars.DEPLOY_BASE || format('/{0}', github.event.repository.name) }}
-          SITE_URL: ${{ vars.SITE_URL || format('https://{0}.github.io/{1}', github.repository_owner, github.event.repository.name) }}
         run: npm run build
 
       - name: Validate built output

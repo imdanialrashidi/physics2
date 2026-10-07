@@ -137,7 +137,13 @@ export const basePath: string = (process.env.BASE_PATH ?? '').replace(/\/$/, '')
 /** Canonical absolute URL for a site-relative path. */
 export function absoluteUrl(path: string): string {
   const clean = path.startsWith('/') ? path : `/${path}`;
-  return `${siteUrl.replace(/\/$/, '')}${basePath}${clean}` || '/';
+  const origin = siteUrl.replace(/\/$/, '');
+  // SITE_URL may already contain the deployment base (e.g. a GitHub Pages
+  // project site configured as https://user.github.io/repo). Appending the
+  // base again would emit /repo/repo/... canonical URLs, so only add it
+  // when the origin does not already end with it.
+  const needsBase = basePath && !origin.endsWith(basePath);
+  return `${origin}${needsBase ? basePath : ''}${clean}` || '/';
 }
 
 /**

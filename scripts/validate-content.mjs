@@ -264,16 +264,6 @@ if (checkLinks) {
   if (!existsSync(distDir)) {
     error(distDir, 'not found — run `npm run build` first or pass --dist <path>');
   } else {
-    // The built output carries the deployment base (e.g. /physics2), so strip
-    // it before comparing paths against the emitted files on disk. CI exports
-    // BASE_PATH for exactly this reason.
-    const base = (process.env.BASE_PATH ?? '').replace(/\/$/, '');
-    const stripBase = (href) => {
-      if (!base) return href;
-      if (href === base) return '/';
-      return href.startsWith(`${base}/`) ? href.slice(base.length) : href;
-    };
-
     const htmlFiles = await collectHtmlFiles(distDir);
     // A link is valid if it resolves to a built page OR to a real emitted file
     // (asset, stylesheet, favicon, sitemap). Checking the filesystem is the
@@ -293,15 +283,74 @@ if (checkLinks) {
       return candidates.some((c) => existsSync(c));
     };
 
+    const resolves = (href) => {
+      if (href === '/' || knownRoutes.has(href)) return true;
+      return assetExists(href);
+    };
+
+    const stripBase = (href, b) => {
+      if (!b) return href;
+      if (href === b) return '/';
+      return href.startsWith(`${b}/`) ? href.slice(b.length) : href;
+    };
+
+    // The built output carries the deployment base (e.g. /physics2), so strip
+    // it before comparing paths against the emitted files on disk.
+    let base = (process.env.BASE_PATH ?? '').replace(/\/$/, '');
+    const linkTargets = [];
     for (const file of htmlFiles) {
       const html = await readFile(file, 'utf8');
-      const rel = path.relative(distDir, file);
-      for (const m of html.matchAll(/href="(\/[^"#?]*)"/g)) {
-        const href = stripBase(m[1]);
-        if (href === '/' || knownRoutes.has(href)) continue;
-        if (!assetExists(href)) {
-          error(`dist/${rel}`, `broken internal link: ${m[1]}`);
+      linkTargets.push({
+        file,
+        hrefs: [...html.matchAll(/href="(\/[^"#?]*)"/g)].map((m) => m[1]),
+      });
+    }
+
+    if (!base) {
+      // BASE_PATH was not exported to this step (a bare
+      // `npm run validate:links` after a project-site build). Infer the base
+      // from the built hrefs so a correct build is never reported as
+      // thousands of broken links — the exact failure that blocked the
+      // GitHub Pages deploy. A candidate only wins when stripping it
+      // resolves the overwhelming majority of the links it prefixes.
+      const counts = new Map();
+      for (const { hrefs } of linkTargets) {
+        for (const href of hrefs) {
+          const segment = href.split('/')[1];
+          if (segment) counts.set(`/${segment}`, (counts.get(`/${segment}`) ?? 0) + 1);
         }
+      }
+      const candidates = [...counts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 5);
+      for (const [candidate] of candidates) {
+        let total = 0;
+        let ok = 0;
+        for (const { hrefs } of linkTargets) {
+          for (const href of hrefs) {
+            if (href === candidate || href.startsWith(`${candidate}/`)) {
+              total += 1;
+              if (resolves(stripBase(href, candidate))) ok += 1;
+            }
+          }
+        }
+        if (total > 0 && ok / total > 0.9) {
+          base = candidate;
+          break;
+        }
+      }
+      if (base) {
+        warn(
+          'validate-content',
+          `BASE_PATH is unset; inferred deployment base "${base}" from the built output. Export BASE_PATH for an explicit check.`,
+        );
+      }
+    }
+
+    for (const { file, hrefs } of linkTargets) {
+      const rel = path.relative(distDir, file);
+      for (const raw of hrefs) {
+        const href = stripBase(raw, base);
+        if (resolves(href)) continue;
+        error(`dist/${rel}`, `broken internal link: ${raw}`);
       }
     }
   }

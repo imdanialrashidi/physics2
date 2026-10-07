@@ -46,7 +46,16 @@ const {
 } = Astro.props;
 
 const pageTitle = title === courseConfig.title ? `${courseConfig.title} — ${SEO.defaultTitleSuffix}` : `${title} — ${courseConfig.title}`;
-const canonical = absoluteUrl(Astro.url.pathname.replace(basePath, '') || '/');
+// Strip only a leading deployment base: String.replace would also mangle a
+// route that merely contains the base segment elsewhere.
+const toRoutePath = (pathname: string) =>
+  basePath && pathname.startsWith(`${basePath}/`)
+    ? pathname.slice(basePath.length)
+    : pathname === basePath
+      ? '/'
+      : pathname;
+const routePath = toRoutePath(Astro.url.pathname) || '/';
+const canonical = absoluteUrl(routePath);
 const showPalette = isEnabled('commandPalette') && isEnabled('search');
 const paletteIndex = showPalette ? buildSearchIndex(await getAllEntries()) : [];
 ---
@@ -120,7 +129,7 @@ const paletteIndex = showPalette ? buildSearchIndex(await getAllEntries()) : [];
       رفتن به محتوای اصلی
     </a>
 
-    <Header pathname={Astro.url.pathname.replace(basePath, '') || '/'} />
+    <Header pathname={routePath} />
 
     <main id="main" class="flex-1">
       <slot />
