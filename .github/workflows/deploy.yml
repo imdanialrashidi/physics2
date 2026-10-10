@@ -1,12 +1,12 @@
-# Minimal static deployment for GitHub Pages (project sites under /<repo>/).
+# Minimal static deployment for GitHub Pages.
 #
 # Node 22 is the version this template is developed and verified against.
 # Pages runs `npm ci` + `npm run build` from the repository root and publishes
-# the `dist/` artifact. BASE_PATH is derived from the repository name so the
-# same source also works on Cloudflare Pages without editing any file.
-#
-# For a user/organisation site (https://<owner>.github.io) set the
-# `DEPLOY_BASE` repository variable to "/" in the repository settings.
+# the `dist/` artifact. Deploy URLs resolve as: repository variables
+# (DEPLOY_BASE / SITE_URL) → public/CNAME (custom domain, served from the
+# domain root) → /<repo>/ project-site default. A CNAME therefore needs no
+# repository settings; it also keeps the custom domain attached on GitHub's
+# side because Astro copies public/CNAME into dist/ on every build.
 
 name: deploy
 
@@ -29,18 +29,32 @@ jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    env:
-      # A repo named "physics2" is served from /physics2/, so every asset
-      # and link Astro emits has to carry that prefix. Declared once at job
-      # level so the link check validates the same output the build produced
-      # (it previously ran without BASE_PATH and flagged every correct link
-      # as broken). SITE_URL stays the bare origin: absoluteUrl() appends
-      # BASE_PATH itself, so including the repo name here would emit
-      # /physics2/physics2/ canonical URLs.
-      BASE_PATH: ${{ vars.DEPLOY_BASE || format('/{0}', github.event.repository.name) }}
-      SITE_URL: ${{ vars.SITE_URL || format('https://{0}.github.io', github.repository_owner) }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Resolve deploy URLs
+        id: urls
+        run: |
+          # Priority: repository variables → public/CNAME → project-site default.
+          # A CNAME means "serve from the custom-domain root", so BASE_PATH
+          # is empty and SITE_URL is the bare https origin. SITE_URL always
+          # stays the bare origin: absoluteUrl() appends BASE_PATH itself, so
+          # including the repo name there would emit /physics2/physics2/
+          # canonical URLs.
+          base="${{ vars.DEPLOY_BASE }}"
+          site="${{ vars.SITE_URL }}"
+          if [ -z "$site" ] && [ -f public/CNAME ]; then
+            domain="$(tr -d '[:space:]' < public/CNAME)"
+            site="https://${domain}"
+            [ -z "$base" ] && base="/"
+          fi
+          [ -z "$base" ] && base="/${{ github.event.repository.name }}"
+          [ -z "$site" ] && site="https://${{ github.repository_owner }}.github.io"
+          echo "BASE_PATH=${base} SITE_URL=${site}"
+          {
+            echo "base_path=${base}"
+            echo "site_url=${site}"
+          } >> "${GITHUB_OUTPUT}"
 
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
@@ -51,9 +65,17 @@ jobs:
         run: npm ci
 
       - name: Build static site
+        env:
+          BASE_PATH: ${{ steps.urls.outputs.base_path }}
+          SITE_URL: ${{ steps.urls.outputs.site_url }}
         run: npm run build
 
       - name: Validate built output
+        env:
+          # Same BASE_PATH the build used: the check previously ran without
+          # it and flagged every correct link as broken.
+          BASE_PATH: ${{ steps.urls.outputs.base_path }}
+          SITE_URL: ${{ steps.urls.outputs.site_url }}
         run: node scripts/validate-content.mjs --links
 
       - uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5.0.0

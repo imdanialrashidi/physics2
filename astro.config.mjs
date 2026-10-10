@@ -14,7 +14,7 @@ import { remarkBaseLinks } from './src/lib/remark-base-links.mjs';
  *   provider-specific code.
  */
 const basePath = (process.env.BASE_PATH ?? '').replace(/\/$/, '');
-const site = process.env.SITE_URL ?? 'https://imdanialrashidi.github.io';
+const site = process.env.SITE_URL ?? 'https://physics2.danialrashidi.ir';
 
 export default defineConfig({
   site,
